@@ -18,3 +18,8 @@ How to live without libraries and not to die in the attempt.
 ## Section 1
 
 <<[PITCHME.md]
+
+
+## Section 2
+
+[https://gitpitch.com/emedinaa/android-without-libraries](https://gitpitch.com/emedinaa/android-without-libraries)
