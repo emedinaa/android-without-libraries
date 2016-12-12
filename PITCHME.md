@@ -15,6 +15,12 @@
 - Under Git Version Control Within Your Git Repo
 
 #HSLIDE
+ Helper :
+        ##ImageLoader
+        
+        ##ImageLoaderHelper
+ 
+#HSLIDE
 
  Creando un ImageLoader 
 
@@ -74,7 +80,7 @@ Definimos el comportamiento del ImageLoader:
 ```
 
 #HSLIDE
- Luego, la implementación seria la clase "ImageLoaderHelper"
+ Luego, lo implementación en la clase "ImageLoaderHelper"
  
 ```
  public class ImageLoaderHelper {
@@ -108,7 +114,7 @@ Definimos el comportamiento del ImageLoader:
  }
 ```
 #HSLIDE
-Si es Picasso , nosotros podemos crear su implementación 
+Si es Picasso , creamos la implementación "PicassoLoader"
 ```
    public class PicassoLoader implements ImageLoader {
 
@@ -136,7 +142,7 @@ Si es Picasso , nosotros podemos crear su implementación
    }
 ```
 #HSLIDE
-Bueno... y como podemos usar este "ImageLoader" ?
+Bueno... y como podemos usar este helper ?
 ```
    private final ImageLoader imageLoader;
 
@@ -152,6 +158,17 @@ Bueno... y como podemos usar este "ImageLoader" ?
           imageLoader.loadCircle(url,iviMember);
   }
 ```
+
+
+#HSLIDE
+ Helper :
+        ##Adapters
+        ##Renderers 
+
+#HSLIDE
+Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
+ ![LOGO](https://d1z75bzl1vljy2.cloudfront.net/img/gp-logo.png)
+ 
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
 
