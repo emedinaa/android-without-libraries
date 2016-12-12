@@ -109,9 +109,6 @@ Definimos el comportamiento del ImageLoader:
 ```
 #HSLIDE
 Si es Picasso , nosotros podemos crear su implementación 
-
-#HSLIDE
-Bueno... y como podemos usar este "ImageLoader" ?
 ```
    public class PicassoLoader implements ImageLoader {
 
@@ -137,6 +134,23 @@ Bueno... y como podemos usar este "ImageLoader" ?
                    .into(imageView);
        }
    }
+```
+#HSLIDE
+Bueno... y como podemos usar este "ImageLoader" ?
+```
+   private final ImageLoader imageLoader;
+
+      public MemberRenderer(ImageLoader imageLoader) {
+          this.imageLoader = imageLoader;
+  }
+```
+
+```
+   private void renderThumbnail(Member member) {
+          Photo photo= member.getPhoto();
+          String url= photo.getThumb_link();
+          imageLoader.loadCircle(url,iviMember);
+  }
 ```
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
