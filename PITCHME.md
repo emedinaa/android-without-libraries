@@ -27,7 +27,6 @@
 - Fresco by Facebook [https://github.com/facebook/fresco](https://github.com/facebook/fresco)
 
 #HSLIDE
- Creando un ImageLoader 
 
 Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidades adicionales.
 
@@ -43,6 +42,9 @@ Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidad
                 .into(imageView);
 ```
 
+#HSLIDE
+
+Si usamos fresco, debemos usar un customView
 ```
    <com.facebook.drawee.view.SimpleDraweeView
        android:id="@+id/sdvImage"
@@ -59,7 +61,6 @@ Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidad
 ```
 
 #HSLIDE
- Creando un ImageLoader 
 
 La idea es no depender de una en particular , no tener código suelto en nuestro código y en su momento poder escoger trabajar con una u otra.
 
@@ -73,9 +74,9 @@ Definimos el comportamiento del ImageLoader
           void loadLocal(String path, ImageView imageView);
       }
 ```
+
 #HSLIDE
- Creando un ImageLoader 
- ImageLoaderHelper seria la implementación:
+ La clase ImageLoaderHelper seria la implementación:
  
 ```
 public class ImageLoaderHelper {
