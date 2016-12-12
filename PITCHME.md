@@ -29,7 +29,7 @@
 
  Creando un ImageLoader 
 
-¿Qué librerias usamos para cargar imagenes ?. Por ejemplo, si queremos mostrar imágenes en una vista o lista.
+¿Qué librerias usamos para cargar imágenes ?. Por ejemplo, si queremos mostrar imágenes en una vista o lista.
 
 - Picasso by Square [http://square.github.io/picasso/](http://square.github.io/picasso/)
 
@@ -73,8 +73,6 @@ Si es con fresco, debemos usar un customView
 #HSLIDE
 La idea es no depender de una libreria en particular , no tener código suelto en nuestro proyecto y en su momento poder escoger con cual trabajar o no.
 
-Definimos el comportamiento del ImageLoader:
-
 ```
       public interface ImageLoader {
 
@@ -85,8 +83,8 @@ Definimos el comportamiento del ImageLoader:
 ```
 
 #HSLIDE
- Luego, la implementación en la clase "ImageLoaderHelper"
- 
+ImageLoaderHelper
+
 ```
  public class ImageLoaderHelper {
      public static final int GLIDE=1;
