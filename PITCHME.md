@@ -5,20 +5,18 @@
 
 #HSLIDE
 
-- GitHub Flavored Markdown +
-- Code Block and GIST Slides
-- Image and Video Slides
-- Custom Logos and Backgrounds
-- Multiple Themes And More
-- <span style="color: #e49436">Plus...</span>
-- Your Slideshow Is Part Of Your Project
-- Under Git Version Control Within Your Git Repo
+- ¿Qué librerias necesito ahora para crear una app?
+- Helpers
+- Integrar una librería a nuestro proyecto
+- No depender de una sola librería
+- Librerías que realmente sirven
+- Arquitectura : Clean y MVP
 
 #HSLIDE
- Helper :
-        ## ImageLoader
+ Helper 
+        ##ImageLoader
         
-        ## ImageLoaderHelper
+        ##ImageLoaderHelper
  
 #HSLIDE
 
@@ -161,9 +159,10 @@ Bueno... y como podemos usar este helper ?
 
 
 #HSLIDE
- Helper :
-        ## Adapters
-        ## Renderers 
+ Helper 
+        ##Adapters
+        
+        ##Renderers 
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
@@ -171,7 +170,38 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/renderers.png)
  
 #HSLIDE
+Clean Architecture & Android MVP
+
+#HSLIDE
+Inversión de control e Inyección de Dependencias
+
+| Without DI | With Manual DI |
+| ------------- | ------------- |
+| ```java
+      MemberMapper memberMapper= new MemberMapper();
+        MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
+        membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);
+```  | ```java
+      MemberMapper memberMapper= new MemberMapper();
+        MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
+        membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);
+```  |
+
+#HSLIDE
 <!-- .slide: data-autoslide="8000" -->
+
+#HSLIDE
+
+References 
+
+- Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
+
+
+- Clean Architecture
+
+- Android MVP
+
+- Helpers
 
 ### Go for it.
 ### Just add <span style="color: #e49436; text-transform: none">PITCHME.md</span> ;)
