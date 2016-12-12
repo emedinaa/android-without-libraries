@@ -43,8 +43,7 @@ Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidad
 ```
 
 #HSLIDE
-
-Si usamos fresco, debemos usar un customView
+Si es con fresco, debemos usar un customView
 ```
    <com.facebook.drawee.view.SimpleDraweeView
        android:id="@+id/sdvImage"
@@ -61,10 +60,9 @@ Si usamos fresco, debemos usar un customView
 ```
 
 #HSLIDE
-
 La idea es no depender de una en particular , no tener código suelto en nuestro código y en su momento poder escoger trabajar con una u otra.
 
-Definimos el comportamiento del ImageLoader
+Definimos el comportamiento del ImageLoader:
 
 ```
       public interface ImageLoader {
@@ -76,41 +74,70 @@ Definimos el comportamiento del ImageLoader
 ```
 
 #HSLIDE
- La clase ImageLoaderHelper seria la implementación:
+ Luego, la implementación seria la clase "ImageLoaderHelper"
  
 ```
-public class ImageLoaderHelper {
+ public class ImageLoaderHelper {
+     public static final int GLIDE=1;
+     public static final int PICASSO=2;
 
-    public static final int GLIDE=1;
-    public static final int PICASSO=2;
+     private int type=GLIDE;
+     private ImageLoader imageLoader;
 
-    private int type=GLIDE;
-    private ImageLoader imageLoader;
+     public ImageLoaderHelper(int type) {
+         this.type = type;
+         imageLoader= factory();
+     }
 
-    public ImageLoaderHelper(int type) {
-        this.type = type;
-        imageLoader= factory();
-    }
+     public ImageLoader getLoader() {
+         return imageLoader;
+     }
 
-    public ImageLoader getLoader() {
-        return imageLoader;
-    }
-
-    private ImageLoader factory()
-    {
-        switch (type)
-        {
-            case PICASSO:
-               return new PicassoLoader();
-            case GLIDE:
-                return new GlideLoader();
-            default:
-                return new GlideLoader();
-        }
-    }
-}
+     private ImageLoader factory()
+     {
+         switch (type)
+         {
+             case PICASSO:
+                return new PicassoLoader();
+             case GLIDE:
+                 return new GlideLoader();
+             default:
+                 return new GlideLoader();
+         }
+     }
+ }
 ```
+#HSLIDE
+Si es Picasso , nosotros podemos crear su implementación 
 
+#HSLIDE
+Bueno... y como podemos usar este "ImageLoader" ?
+```
+   public class PicassoLoader implements ImageLoader {
+
+       @Override
+       public void load(String url, ImageView imageView) {
+           Picasso.with(imageView.getContext())
+                   .load(url)
+                   .into(imageView);
+       }
+
+       @Override
+       public void loadCircle(String url, ImageView imageView) {
+           Picasso.with(imageView.getContext())
+                   .load(url)
+                   .transform(new CircleTransform())
+                   .into(imageView);
+       }
+
+       @Override
+       public void loadLocal(String path, ImageView imageView) {
+           Picasso.with(imageView.getContext())
+                   .load(new File(path))
+                   .into(imageView);
+       }
+   }
+```
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
 
