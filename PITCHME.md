@@ -13,10 +13,11 @@
 - Arquitectura : Clean y MVP
 
 #HSLIDE
- Helper 
-        ##ImageLoader
-        
-        ##ImageLoaderHelper
+ Helper
+ 
+ - ##ImageLoader
+ 
+ - ##ImageLoaderHelper
  
 #HSLIDE
 
@@ -157,16 +158,14 @@ Bueno... y como podemos usar este helper ?
   }
 ```
 
-
 #HSLIDE
- Helper 
-        ##Adapters
+
+  - ##Adapters
         
-        ##Renderers 
+  - ##Renderers 
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
-
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/renderers.png)
  
 #HSLIDE
@@ -185,12 +184,13 @@ References
 
 - Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
 
-
 - Clean Architecture
 
 - Android MVP
 
 - Helpers
+
+#HSLIDE
 
 ### Go for it.
 ### Just add <span style="color: #e49436; text-transform: none">PITCHME.md</span> ;)
