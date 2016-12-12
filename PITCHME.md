@@ -16,7 +16,7 @@
 
 #HSLIDE
 
-## Creando un ImageLoader 
+# Creando un ImageLoader 
 
 ¿Qué librerias usamos normalmente para cargar imagenes ?. Por ejemplo,si queremos mostrar una imagen en un vista o lista 
 
@@ -27,7 +27,7 @@
 - Fresco by Facebook [https://github.com/facebook/fresco](https://github.com/facebook/fresco)
 
 #HSLIDE
-## Creando un ImageLoader 
+# Creando un ImageLoader 
 
 Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidades adicionales.
 
@@ -58,6 +58,52 @@ Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidad
    draweeView.setImageURI(imageUri);
 ```
 
+#HSLIDE
+# Creando un ImageLoader 
+
+La idea es no depender de una en particular , no tener código suelto en nuestro código y en su momento poder escoger trabajar con una u otra.
+
+```
+      public interface ImageLoader {
+
+          void load(String url, ImageView imageView);
+          void loadCircle(String url, ImageView imageView);
+          void loadLocal(String path, ImageView imageView);
+      }
+```
+
+```
+public class ImageLoaderHelper {
+
+    public static final int GLIDE=1;
+    public static final int PICASSO=2;
+
+    private int type=GLIDE;
+    private ImageLoader imageLoader;
+
+    public ImageLoaderHelper(int type) {
+        this.type = type;
+        imageLoader= factory();
+    }
+
+    public ImageLoader getLoader() {
+        return imageLoader;
+    }
+
+    private ImageLoader factory()
+    {
+        switch (type)
+        {
+            case PICASSO:
+               return new PicassoLoader();
+            case GLIDE:
+                return new GlideLoader();
+            default:
+                return new GlideLoader();
+        }
+    }
+}
+```
 
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
