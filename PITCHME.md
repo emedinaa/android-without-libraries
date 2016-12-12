@@ -1,11 +1,11 @@
 #HSLIDE
 <!-- .slide: data-autoslide="10000" -->
 
-   ### Eduardo José Medina Alfaro
+   ** Eduardo José Medina Alfaro **
    
-   #### @eduardomedina
+   ###### @eduardomedina
    
-   #### https://github.com/emedinaa
+   ###### https://github.com/emedinaa
    
 
 #HSLIDE
