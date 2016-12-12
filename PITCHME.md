@@ -174,25 +174,7 @@ Clean Architecture & Android MVP
 
 #HSLIDE
 Inversión de control e Inyección de Dependencias
-
-| Without DI | With Manual DI |
-| ------------- | ------------- |
-| 
-
-```
-      MemberMapper memberMapper= new MemberMapper();
-      MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
-      membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);
- ```  
-   
-| 
-   
- ```
-      MemberMapper memberMapper= new MemberMapper();
-      MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
-      membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);
- ```  
-|
+![DI](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/dependency_inject.png)
 
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
