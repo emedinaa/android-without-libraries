@@ -3,9 +3,9 @@
 
    **Eduardo José Medina Alfaro**
    
-   ###### @eduardomedina
+   ######@eduardomedina
    
-   ###### https://github.com/emedinaa
+   ######https://github.com/emedinaa
    
 
 #HSLIDE
