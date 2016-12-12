@@ -29,7 +29,7 @@
 #HSLIDE
 ## Creando un ImageLoader 
 
-Picaso , Glide y Fresco son muy similares , algunas tienen funcionalidades adicionales 
+Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidades adicionales.
 
 ```
    Picasso.with(imageView.getContext())
@@ -41,6 +41,21 @@ Picaso , Glide y Fresco son muy similares , algunas tienen funcionalidades adici
    Glide.with(imageView.getContext())
                 .load(url)
                 .into(imageView);
+```
+
+```
+   <com.facebook.drawee.view.SimpleDraweeView
+       android:id="@+id/sdvImage"
+       android:layout_width="130dp"
+       android:layout_height="130dp"
+       fresco:placeholderImage="@drawable/myPlaceholderImage" />
+```
+
+```
+   Fresco.initialize(context);
+   Uri imageUri = Uri.parse("https://i.imgur.com/tGbaZCY.jpg");
+   SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
+   draweeView.setImageURI(imageUri);
 ```
 
 
