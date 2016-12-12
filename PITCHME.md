@@ -15,6 +15,36 @@
 - Under Git Version Control Within Your Git Repo
 
 #HSLIDE
+
+## Creando un ImageLoader 
+
+¿Qué librerias usamos normalmente para cargar imagenes ?. Por ejemplo,si queremos mostrar una imagen en un vista o lista 
+
+- Picasso by Square [http://square.github.io/picasso/](http://square.github.io/picasso/)
+
+- Glide [https://github.com/bumptech/glide](https://github.com/bumptech/glide)
+
+- Fresco by Facebook [https://github.com/facebook/fresco](https://github.com/facebook/fresco)
+
+#HSLIDE
+## Creando un ImageLoader 
+
+Picaso , Glide y Fresco son muy similares , algunas tienen funcionalidades adicionales 
+
+```
+   Picasso.with(imageView.getContext())
+                .load(url)
+                .into(imageView);
+```
+
+```
+   Glide.with(imageView.getContext())
+                .load(url)
+                .into(imageView);
+```
+
+
+#HSLIDE
 <!-- .slide: data-autoslide="8000" -->
 
 ### Go for it.
