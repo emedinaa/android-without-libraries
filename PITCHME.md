@@ -1,7 +1,7 @@
 #HSLIDE
 <!-- .slide: data-autoslide="10000" -->
 
-   ** Eduardo José Medina Alfaro **
+   **Eduardo José Medina Alfaro**
    
    ###### @eduardomedina
    
