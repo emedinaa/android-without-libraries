@@ -2,7 +2,7 @@
 
 buildscript {
     repositories {
-        //jcenter()
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -10,6 +10,9 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        // the latest version of the android-apt plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -34,6 +37,10 @@ ext {
     //junit
     junitVersion = "4.12"
     mockitoVersion = "1.10.19"
+
+    //dagger2
+    daggerVersion ='2.4'
+
 }
 
 task clean(type: Delete) {

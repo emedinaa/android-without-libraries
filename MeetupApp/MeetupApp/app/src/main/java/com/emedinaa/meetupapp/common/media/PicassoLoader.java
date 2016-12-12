@@ -2,6 +2,7 @@ package com.emedinaa.meetupapp.common.media;
 
 import android.widget.ImageView;
 
+import com.emedinaa.meetupapp.common.media.transform.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -15,6 +16,14 @@ public class PicassoLoader implements ImageLoader {
     public void load(String url, ImageView imageView) {
         Picasso.with(imageView.getContext())
                 .load(url)
+                .into(imageView);
+    }
+
+    @Override
+    public void loadCircle(String url, ImageView imageView) {
+        Picasso.with(imageView.getContext())
+                .load(url)
+                .transform(new CircleTransform())
                 .into(imageView);
     }
 
