@@ -168,7 +168,7 @@ Bueno... y como podemos usar este helper ?
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
 
- ![LOGO](https://github.com/emedinaa/android-without-libraries/blob/master/renderers.png)
+ ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/renderers.png)
  
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
