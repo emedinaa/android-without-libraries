@@ -10,25 +10,26 @@
 
 #HSLIDE
 
-- ¿Qué librerias necesito ahora para crear una app?
-- Helpers
-- Integrar una librería a nuestro proyecto
+- ¿Qué librerias necesito para crear una app?
+- Crear Helpers
 - No depender de una sola librería
+- ¿Cómo integrar una librería a nuestro proyecto?
 - Librerías que realmente sirven
 - Arquitectura : Clean y MVP
+- Comunicación entre componentes
 
 #HSLIDE
  Helper
  
- - ##ImageLoader
+ - ##### ImageLoader
  
- - ##ImageLoaderHelper
+ - ##### ImageLoaderHelper
  
 #HSLIDE
 
  Creando un ImageLoader 
 
-¿Qué librerias usamos normalmente para cargar imagenes ?. Por ejemplo,si queremos mostrar una imagen en un vista o lista 
+¿Qué librerias usamos para cargar imagenes ?. Por ejemplo, si queremos mostrar imágenes en una vista o lista.
 
 - Picasso by Square [http://square.github.io/picasso/](http://square.github.io/picasso/)
 
@@ -38,7 +39,7 @@
 
 #HSLIDE
 
-Picaso y Glide son muy similares , Glide y Fresco cuentan algunas  funcionalidades adicionales.
+Picaso y Glide son muy similares , Glide y Fresco cuentan con algunas funcionalidades adicionales.
 
 ```
    Picasso.with(imageView.getContext())
@@ -70,7 +71,7 @@ Si es con fresco, debemos usar un customView
 ```
 
 #HSLIDE
-La idea es no depender de una en particular , no tener código suelto en nuestro código y en su momento poder escoger trabajar con una u otra.
+La idea es no depender de una libreria en particular , no tener código suelto en nuestro proyecto y en su momento poder escoger con cual trabajar o no.
 
 Definimos el comportamiento del ImageLoader:
 
@@ -84,7 +85,7 @@ Definimos el comportamiento del ImageLoader:
 ```
 
 #HSLIDE
- Luego, lo implementación en la clase "ImageLoaderHelper"
+ Luego, la implementación en la clase "ImageLoaderHelper"
  
 ```
  public class ImageLoaderHelper {
@@ -118,7 +119,7 @@ Definimos el comportamiento del ImageLoader:
  }
 ```
 #HSLIDE
-Si es Picasso , creamos la implementación "PicassoLoader"
+Si es Picasso , creamos la clase  "PicassoLoader"
 ```
    public class PicassoLoader implements ImageLoader {
 
@@ -165,9 +166,94 @@ Bueno... y como podemos usar este helper ?
 
 #HSLIDE
 
-  - ##Adapters
+  - ##### UI
+  
+#HSLIDE
+Custom View
+
+```
+   public class MTextView extends AppCompatTextView {
+       public MTextView(Context context) {
+           super(context);
+           app(context,null);
+       }
+
+       public MTextView(Context context, AttributeSet attrs) {
+           super(context, attrs);
+           app(context,attrs);
+       }
+
+       public MTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+           super(context, attrs, defStyleAttr);
+           app(context,attrs);
+       }
+       private void app(Context context, Object object) {
+           if(!isInEditMode()) loadFont(context);
+       }
+
+       protected void loadFont(Context context){
+           String pathFont= "fonts/helveticaneuelight.ttf";
+           if(getTag()==null){
+               pathFont= "fonts/helveticaneuelight.ttf";
+           }else if(getTag().equals("1")){
+               pathFont= "fonts/helveticaneuelight.ttf";
+           }else if(getTag().equals("2")){
+               pathFont= "fonts/gotham-rounded-bold.otf";
+           }
+           Typeface type = Typeface.createFromAsset(context.getAssets(),pathFont);
+           setTypeface(type);
+       }
+   }
+```
+
+#HSLIDE
+ ```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="14dp">
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="2dp"
+        tools:src="@drawable/circle"
+        android:background="@drawable/bgcircle"
+        android:layout_centerVertical="true"
+        android:id="@+id/iviMember"/>
+
+    <com.emedinaa.meetupapp.common.ui.MTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iviMember"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:tag="1"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        tools:text="Eduardo Medina"
+        android:id="@+id/tviName"/>
+
+    <com.emedinaa.meetupapp.common.ui.MTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:tag="1"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        tools:text="Miembro"
+        android:layout_alignParentRight="true"
+        android:id="@+id/tviType"/>
+
+</RelativeLayout>
+```
+  
+#HSLIDE
+
+  - ##### Adapters
         
-  - ##Renderers 
+  - ##### Renderers 
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
