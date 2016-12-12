@@ -16,9 +16,9 @@
 
 #HSLIDE
  Helper :
-        ##ImageLoader
+        ## ImageLoader
         
-        ##ImageLoaderHelper
+        ## ImageLoaderHelper
  
 #HSLIDE
 
@@ -162,11 +162,12 @@ Bueno... y como podemos usar este helper ?
 
 #HSLIDE
  Helper :
-        ##Adapters
-        ##Renderers 
+        ## Adapters
+        ## Renderers 
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
+
  ![LOGO](https://github.com/emedinaa/android-without-libraries/blob/master/renderers.png)
  
 #HSLIDE
