@@ -555,14 +555,14 @@ Output
 
 #HSLIDE
 Android MVP
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="520">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="540">
 
 #HSLIDE
 Clean Architecture
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="640">
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="620">
 
 #VSLIDE
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="640">
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
 
 #HSLIDE
 ##### Inversión de Dependencias e Inyección de Dependencias
@@ -586,6 +586,7 @@ References
 #HSLIDE
 
 **Write Code, Read Code , learn from experiences ...**
+
 by Fernando Cejas
 
 #HSLIDE
