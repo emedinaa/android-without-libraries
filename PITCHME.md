@@ -636,6 +636,8 @@ Referencias
 
 - Helpers [http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html](http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html)
 
+- Dependency Injection for testing [https://gumroad.com/l/DaggerlessDITesting#](https://gumroad.com/l/DaggerlessDITesting#)
+
 #HSLIDE
 
 **Write Code, Read Code , learn from experiences ...**
