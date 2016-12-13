@@ -958,7 +958,7 @@ Clean Architecture
  
  - Haz que tu código no dependa de una sola librería.
  
- - Estudia  la teoria mas que como usar una librería.
+ - Estudia  la teoria más que saber como usar una librería.
 
  
 #HSLIDE
