@@ -320,24 +320,25 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
   SharedPreferencesHelper
   ```Java
   
-        public interface SharedPreferencesHelper{
-        
-               void saveEmail (String email);
-               String email();
-
-               void saveUser(User user);
-               User user();
-
-               void clear();
-        }
+     public interface SharedPreferencesHelper{
+     
+         void saveEmail (String email);
+         String email();
+         void saveUser(User user);
+         User user();
+         void clear();
+     }
   ```
 #HSLIDE
 DefaultSharedPreferencesHelper
 ```Java
 
-      private  final String MY_SHARED_PREFERENCES = "com.emedinaa.sharedpreferences";
-      private  final String KEY_EMAIL = MY_SHARED_PREFERENCES+".session.email";
-      private  final String KEY_USER = MY_SHARED_PREFERENCES+".session.user";
+      private  final String MY_SHARED_PREFERENCES 
+                              = "com.emedinaa.sharedpreferences";
+      private  final String KEY_EMAIL 
+                              = MY_SHARED_PREFERENCES+".session.email";
+      private  final String KEY_USER 
+                              = MY_SHARED_PREFERENCES+".session.user";
 
       private final SharedPreferences sharedPreferences;
       private final GsonHelper gsonHelper;
