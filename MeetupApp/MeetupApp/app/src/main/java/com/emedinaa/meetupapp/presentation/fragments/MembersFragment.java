@@ -12,13 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.emedinaa.meetupapp.R;
-import com.emedinaa.meetupapp.common.media.PicassoLoader;
+import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
 import com.emedinaa.meetupapp.data.mapper.MemberMapper;
 import com.emedinaa.meetupapp.data.rest.MembersRestInteractor;
 import com.emedinaa.meetupapp.domain.callback.StorageCallback;
 import com.emedinaa.meetupapp.domain.entity.Member;
-import com.emedinaa.meetupapp.domain.interactors.MembersInteractor;
 import com.emedinaa.meetupapp.presentation.adapter.MemberRenderer;
+import com.emedinaa.meetupapp.presentation.presenter.MemberPresenter;
+import com.emedinaa.meetupapp.presentation.view.MemberView;
 import com.pedrogomez.renderers.RVRendererAdapter;
 import com.pedrogomez.renderers.Renderer;
 import com.pedrogomez.renderers.RendererBuilder;
@@ -33,12 +34,13 @@ import java.util.List;
  * Use the {@link MembersFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MembersFragment extends Fragment {
+public class MembersFragment extends Fragment implements MemberView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "MembersFragment";
+    private final String GROUP="Android-Dev-Peru";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -47,6 +49,7 @@ public class MembersFragment extends Fragment {
     private OnFragmentListener mListener;
     private RecyclerView rviMembers;
     private List<Member> members;
+    private MemberPresenter memberPresenter;
 
     public MembersFragment() {
         // Required empty public constructor
@@ -96,6 +99,10 @@ public class MembersFragment extends Fragment {
         // use a linear layout manager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rviMembers.setLayoutManager(mLayoutManager);
+
+        MemberMapper memberMapper= new MemberMapper();
+        memberPresenter= new MemberPresenter(new MembersRestInteractor(memberMapper));
+        memberPresenter.attachedView(this);
     }
 
     @Override
@@ -122,9 +129,10 @@ public class MembersFragment extends Fragment {
     }
 
     public void getMembers() {
-        MemberMapper memberMapper= new MemberMapper();
+        memberPresenter.getMembers(GROUP);
+        /*MemberMapper memberMapper= new MemberMapper();
         MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
-        membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);
+        membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);*/
     }
 
     private StorageCallback restCallback= new StorageCallback() {
@@ -141,11 +149,32 @@ public class MembersFragment extends Fragment {
         }
     };
 
-    private void renderMembers(List<Member> memberList) {
-        this.members= memberList;
-        Renderer<Member> renderer = new MemberRenderer(new PicassoLoader());
+    @Override
+    public void renderMembers(List<Member> members) {
+        this.members= members;
+        Renderer<Member> renderer = new MemberRenderer(new ImageLoaderHelper(ImageLoaderHelper.PICASSO));
         RendererBuilder<Member> rendererBuilder = new RendererBuilder<Member>(renderer);
         RVRendererAdapter<Member> rendererAdapter= new RVRendererAdapter<Member>(rendererBuilder,members);
         rviMembers.setAdapter(rendererAdapter);
+    }
+
+    @Override
+    public void emptyMembers() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
     }
 }
