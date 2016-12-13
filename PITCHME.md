@@ -541,6 +541,7 @@ References
 
 #HSLIDE
 
-#### Write Code, Read Code , learn from experiences ...  ##### by Fernando Cejas
+#### Write Code, Read Code , learn from experiences ...  
+##### by Fernando Cejas
 
-### Thanks  ;)
+#### Thanks  ;)
