@@ -33,9 +33,7 @@ public class MemberRenderer extends Renderer<Member> {
     }
 
     @Override
-    protected void hookListeners(View rootView) {
-
-    }
+    protected void hookListeners(View rootView) {}
 
     @Override
     protected View inflate(LayoutInflater inflater, ViewGroup parent) {
