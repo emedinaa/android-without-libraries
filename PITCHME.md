@@ -454,9 +454,10 @@ Clean Architecture & Android MVP
 #HSLIDE
 Inversión de control e Inyección de Dependencias
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png"
+height="640">
 
 #HSLIDE
-<!-- .slide: data-autoslide="8000" -->
+<!-- .slide: data-autoslide="10000"-->
 
 #HSLIDE
 
