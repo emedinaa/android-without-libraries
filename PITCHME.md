@@ -797,7 +797,78 @@ Output
 
  V/MainActivity: email emedinaa@gmail.com
 ```
+#HSLIDE
 
+  Consumir servicio Restful con Retrofit
+  
+#VSLIDE
+```Java
+
+      public class ApiClient {
+
+          private static final String TAG = "ApiClient";
+          private static final String API_BASE_URL="https://api.meetup.com/";
+
+          private static ServicesApiInterface servicesApiInterface;
+          private static OkHttpClient.Builder httpClient;
+
+
+
+          public static ServicesApiInterface getMyApiClient() {
+
+              if (servicesApiInterface == null) {
+
+                  Retrofit.Builder builder =new Retrofit.Builder()
+                          .baseUrl(API_BASE_URL)
+                          .addConverterFactory(GsonConverterFactory.create());
+                  httpClient =new OkHttpClient.Builder();
+                  httpClient.addInterceptor(interceptor());
+
+                  Retrofit retrofit = builder.client(httpClient.build()).build();
+                  servicesApiInterface = retrofit.create(ServicesApiInterface.class);
+              }
+              return servicesApiInterface;
+          }
+```
+#VSLIDE
+```Java
+
+    public interface ServicesApiInterface {
+
+        //https://api.meetup.com/self/groups?&sign=true&photo-host=public
+        @GET("/self/groups")
+        Call<Object> groups();
+
+        @GET("/{group_urlname}/events/")
+        Call<Object> events(@Path("group_urlname") String group_urlname);
+
+        @GET("/{group_urlname}/events/past")
+        Call<Object> pastEvents(@Path("group_urlname") String group_urlname);
+
+        @GET("/2/members")
+        Call<MemberResponse> membersByGroup(@QueryMap Map<String, 
+        String> options);
+
+        @GET("/2/events")
+        Call<EventList> eventsByGroup(@QueryMap Map<String, String> options);
+        //page
+
+        @GET("/{group_urlname}/events")
+        Call<Object> groupEvents(@Path("group_urlname") 
+        String group_urlname,@QueryMap Map<String, String> options);
+        
+    }
+```
+#VSLIDE
+```Java
+
+ private  static HttpLoggingInterceptor interceptor(){
+        HttpLoggingInterceptor httpLoggingInterceptor= 
+        new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return httpLoggingInterceptor;
+    }
+```
 #HSLIDE
   
   - ##### Arquitectura de la App
@@ -903,6 +974,10 @@ Android MVP
 ```
 
 #HSLIDE
+  
+  - ##### S. O. L. I. D.
+  
+#HSLIDE
 Clean Architecture
 
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="620">
@@ -911,10 +986,6 @@ Clean Architecture
 
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
  
-#HSLIDE
-  
-  - ##### S. O. L. I. D.
-  
 #HSLIDE
 
 ##### Inversión de Dependencias e Inyección de Dependencias
