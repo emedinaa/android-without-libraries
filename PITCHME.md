@@ -19,6 +19,75 @@
 - Comunicación entre componentes
 
 #HSLIDE
+```
+   ext {
+
+       // sdk and tools
+       minSdkVersion = 14
+       targetSdkVersion = 23
+       compileSdkVersion = 23
+       buildToolsVersion = '23.0.3'
+
+       // dependencies versions
+       supportLibraryVersion = '23.4.0'
+       playServicesVersion = '9.2.1'
+
+       //junit
+       junitVersion = "4.12"
+       mockitoVersion = "1.10.19"
+
+       //dagger2
+       daggerVersion ='2.4'
+
+   }
+```
+#VSLIDE
+```
+   dependencies {
+       compile fileTree(include: ['*.jar'], dir: 'libs')
+       testCompile 'junit:junit:4.12'
+       compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+       compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+       compile "com.android.support:design:$rootProject.supportLibraryVersion"
+       compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+       compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+```
+#VSLIDE
+```
+   //PICASSO
+   http://square.github.io/picasso/
+    
+   //GLIDE
+   https://github.com/bumptech/glide
+   
+   //FRESCO
+   compile 'com.facebook.fresco:fresco:0.14.1'
+   
+   //BUTTERKNIFE
+   compile 'com.jakewharton:butterknife:8.4.0'
+   
+   //DAGGER2
+   compile "com.google.dagger:dagger:$rootProject.daggerVersion"
+   apt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+   
+   //RETROFIT 2
+   compile 'com.squareup.retrofit2:retrofit:2.1.0'
+   
+   //GSON
+   compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+   
+   //INTERCEPTOR
+   compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+   
+   //EVENTBUS
+   compile 'org.greenrobot:eventbus:3.0.0'
+   
+   //RENDERERS
+   compile 'com.github.pedrovgs:renderers:3.2.0'
+   
+```
+
+#HSLIDE
  Helper
  
  - ##### ImageLoader
