@@ -186,11 +186,18 @@ height="500">
    compile 'com.github.pedrovgs:renderers:3.2.0'
    
    //RxJava & RxAndroid
-    compile 'io.reactivex:rxandroid:1.2.1'
+   compile 'io.reactivex:rxandroid:1.2.1'
     
-    compile 'io.reactivex:rxjava:1.1.6'
+   compile 'io.reactivex:rxjava:1.1.6'
     
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+   compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+   
+   //transforms https://github.com/wasabeef/picasso-transformations
+   
+   compile 'jp.wasabeef:picasso-transformations:2.1.0'
+   
+   // If you want to use the GPU Filters
+   compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
    
 ```
 
