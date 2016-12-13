@@ -954,7 +954,7 @@ Clean Architecture
 
  - No reinventar la rueda.
  
-  - Si una librería vale la pena, aprende de ella , estudia la técnica y úsala en tu proyecto.
+ - Si una librería vale la pena, aprende de ella , estudia la técnica y úsala en tu proyecto.
  
  - Haz que tu código no dependa de una sola librería.
  
