@@ -10,7 +10,7 @@
 #HSLIDE
 [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
 
-<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png" height="640">
+<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png">
 #VSLIDE
 
 <img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/google_android_architecture" height="640">
