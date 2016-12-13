@@ -472,5 +472,5 @@ References
 
 #HSLIDE
 
-### Go for it.
-### Just add <span style="color: #e49436; text-transform: none">PITCHME.md</span> ;)
+### Write Code, Read Code , learn from experiences ... by Fernando Cejas
+### Thanks  <span style="color: #e49436; text-transform: none">PITCHME.md</span> ;)
