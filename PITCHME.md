@@ -6,6 +6,36 @@
 ###### @eduardomedina
    
 ###### https://github.com/emedinaa
+
+#HSLIDE
+
+#### Meetup App
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
+height="500">
+
+#VSLIDE
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
+height="480">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="480">
+
+#VSLIDE
+[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
+
+#HSLIDE
+
+- ¿Qué librerias necesito para crear una app?
+- Crear Helpers
+- No depender de una sola librería
+- ¿Cómo integrar una librería a nuestro proyecto?
+- Librerías que realmente sirven
+- Arquitectura : Clean y MVP
+- Comunicación entre componentes
+
 #HSLIDE
 ###### [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png" height="520">
@@ -79,6 +109,7 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
 androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
 ```
+
 #HSLIDE
 
 #### Meetup App
@@ -86,27 +117,6 @@ androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProj
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
 height="500">
-
-#VSLIDE
-
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
-height="480">
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
-height="480">
-
-#VSLIDE
-[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
-
-#HSLIDE
-
-- ¿Qué librerias necesito para crear una app?
-- Crear Helpers
-- No depender de una sola librería
-- ¿Cómo integrar una librería a nuestro proyecto?
-- Librerías que realmente sirven
-- Arquitectura : Clean y MVP
-- Comunicación entre componentes
 
 #HSLIDE
 ```
@@ -186,8 +196,6 @@ height="480">
 
 #HSLIDE
  Helper
- 
- - ##### ImageLoader
  
  - ##### ImageLoaderHelper
  
@@ -374,8 +382,8 @@ Bueno... y como podemos usar este helper ?
 ```
 
 #HSLIDE
-
-  - ##### UI
+ 
+ - ##### UI & CustomViews
   
 #HSLIDE
 Custom View
@@ -469,10 +477,8 @@ public class MTextView extends AppCompatTextView {
 ```
   
 #HSLIDE
-
-  - ##### Adapters
-        
-  - ##### Renderers 
+ 
+ - ##### Adapters & RecyclerView
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
@@ -480,7 +486,9 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
  
  
 #HSLIDE
+  
   - ##### Storage Options
+  
   
 #HSLIDE
   SharedPreferencesHelper
@@ -609,7 +617,10 @@ Output
 
  V/MainActivity: email emedinaa@gmail.com
 ```
-
+#HSLIDE
+  
+  - ##### Arquitectura de la App
+  
 #HSLIDE
 Android MVP
 
@@ -623,7 +634,11 @@ Clean Architecture
 #VSLIDE
 
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
-
+ 
+ #HSLIDE
+  
+  - ##### S. O. L. I. D.
+  
 #HSLIDE
 ##### Inversión de Dependencias e Inyección de Dependencias
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
@@ -650,9 +665,16 @@ Clean Architecture
     }
     
 ```
-
+ #HSLIDE
+  
+  - ##### DEMO https://github.com/emedinaa/android-without-libraries/tree/dev
+  
+ #HSLIDE
+  
+  - ##### Referencias
+  
 #HSLIDE
-Referencias 
+
 - Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
 - MVP & Clean Architecture [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 - Uncle Bob Clean Architecture [https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
