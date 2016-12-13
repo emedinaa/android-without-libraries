@@ -257,6 +257,124 @@ Custom View
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/renderers.png)
  
+ 
+#HSLIDE
+  - ##### Storage Options
+  
+#HSLIDE
+  PreferencesHelper
+  ```java
+    public interface SharedPreferencesHelper {
+
+      void saveEmail (String email);
+      String email();
+
+      void saveUser(User user);
+      User user();
+
+      void clear();
+  }
+  ```
+#HSLIDE
+DefaultSharedPreferencesHelper
+```
+      private  final String MY_SHARED_PREFERENCES = "com.emedinaa.sharedpreferences";
+      private  final String KEY_EMAIL = MY_SHARED_PREFERENCES+".session.email";
+      private  final String KEY_USER = MY_SHARED_PREFERENCES+".session.user";
+
+      private final SharedPreferences sharedPreferences;
+      private final GsonHelper gsonHelper;
+
+      public DefaultSharedPreferencesHelper(GsonHelper gsonHelper,SharedPreferences sharedPreferences) {
+          this.gsonHelper= gsonHelper;
+          this.sharedPreferences = sharedPreferences;
+      }
+
+      @Override
+      public void saveEmail(String email) {
+          SharedPreferences.Editor editor = editor();
+          editor.putString(KEY_EMAIL, email);
+          editor.apply();
+      }
+
+      @Override
+      public String email() {
+          String  email= sharedPreferences.getString(KEY_EMAIL,"");
+          return email;
+      }
+
+      @Override
+      public void saveUser(User user) {
+          SharedPreferences.Editor editor = editor();
+          editor.putString(KEY_USER, gsonHelper.objectToJSON(user).toString());
+          editor.apply();
+      }
+
+      @Override
+      public User user() {
+          String  userStr= sharedPreferences.getString(KEY_USER,"");
+          User user= gsonHelper.jsonToObject(userStr,User.class);
+          return user;
+      }
+
+      @Override
+      public void clear() {
+          SharedPreferences.Editor editor = editor();
+          editor.clear();
+          editor.apply();
+      }
+
+      private  SharedPreferences.Editor editor() {
+          return sharedPreferences.edit();
+      }
+  }
+
+```
+#HSLIDE
+```
+ public class GsonHelper {
+
+      public  JSONObject objectToJSON(Object obj)
+      {
+          GsonBuilder gsonb = new GsonBuilder();
+          Gson gson = gsonb.create();
+          JSONObject jsonObject = null;
+          try {
+              jsonObject = new JSONObject(gson.toJson(obj));
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+          return jsonObject;
+      }
+
+      public <T>T jsonToObject(String json,Class<T> cls){
+
+          GsonBuilder gsonb = new GsonBuilder();
+          Gson gson = gsonb.create();
+          return gson.fromJson(json, cls);
+      }
+  }
+```
+#HSLIDE
+Guardar y obtener el Email
+
+```
+  private void preferencesEmail() {
+        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        GsonHelper gsonHelper= new GsonHelper();
+
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        sharedPreferencesHelper.saveEmail("emedinaa@gmail.com");
+        String email=sharedPreferencesHelper.email();
+
+        Log.v(TAG, "email "+email);
+    }
+```
+Output
+```
+ V/MainActivity: email emedinaa@gmail.com
+```
+
 #HSLIDE
 Clean Architecture & Android MVP
 
