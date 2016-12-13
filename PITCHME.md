@@ -81,11 +81,13 @@ androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProj
 ```
 #HSLIDE
 Meetup App
+
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="480">
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
 height="480">
 
 #VSLIDE
+
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
 height="480">
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
