@@ -976,6 +976,11 @@ Android MVP
 #HSLIDE
   
   - ##### S. O. L. I. D.
+  Single Responsability
+  Open & Closed
+  Liskov Substitution
+  Interface Segregation
+  Dependency Inversion
   
 #HSLIDE
 Clean Architecture
