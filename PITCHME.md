@@ -544,5 +544,10 @@ References
 #### Write Code, Read Code , learn from experiences ...
 by Fernando Cejas
 
+#HSLIDE
+
+@eduardomedina
+
+https://github.com/emedinaa/android-without-libraries
 
 #### Thanks  ;)
