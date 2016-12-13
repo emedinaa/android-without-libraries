@@ -1,25 +1,29 @@
 # android-without-libraries
-How to live without libraries and not to die in the attempt.
 
-- Android Support.
+Ejemplo de una app que consume el [API de Meetup](https://www.meetup.com/es-ES/meetup_api/) usando mvp & clean architecture 
 
-- Multimedia.
+Dependencias
 
-- Communication between components.
+- Android Support, Android Design
 
-- Storage Options.
+- Retrofit 2
 
-- MVP Patterns and Clean Architecture.
+- GSon
 
-- Background Tasks.
+- Dagger 2
 
-- Dependency Injections.
+- Picasso, Glide
 
-## Section 1
+- Renderers
 
-<<[PITCHME.md]
+Capturas 
 
+<img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot1.png
+height="480"/>
+<img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot2.png
+height="480"/>
 
-## Section 2
-
-[https://gitpitch.com/emedinaa/android-without-libraries](https://gitpitch.com/emedinaa/android-without-libraries)
+<img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot3.png
+height="480"/>
+<img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot4.png
+height="480"/>
