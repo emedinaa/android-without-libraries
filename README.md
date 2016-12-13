@@ -1,6 +1,8 @@
 # android-without-libraries
 
-Ejemplo de una app que consume el [API de Meetup](https://www.meetup.com/es-ES/meetup_api/) usando mvp & clean architecture 
+MeetupApp , ejemplo de una app usando mvp & clean architecture 
+
+* Se consume el API de Meetup[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
 
 Dependencias
 
