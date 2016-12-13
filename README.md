@@ -21,11 +21,11 @@ Dependencias
 Capturas 
 
 <img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot1.png
-height="480"/>    
+height="520"/> 
 <img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot2.png
-height="480"/>
+height="520"/>
 
 <img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot3.png
-height="480"/>    
+height="520"/> 
 <img src=https://github.com/emedinaa/android-without-libraries/blob/dev/screenshoots/screenshot4.png
-height="480"/>
+height="520"/>
