@@ -310,7 +310,7 @@ public class MTextView extends AppCompatTextView {
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
- ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/renderers.png)
+ ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers.png)
  
  
 #HSLIDE
@@ -446,10 +446,15 @@ Output
 
 #HSLIDE
 Clean Architecture & Android MVP
+![clean layouts](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png
+.png)
+
+#VSLIDE
+![regla dependencia](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png)
 
 #HSLIDE
 Inversión de control e Inyección de Dependencias
-![DI](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/dependency_inject.png)
+![DI](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png)
 
 #HSLIDE
 <!-- .slide: data-autoslide="8000" -->
