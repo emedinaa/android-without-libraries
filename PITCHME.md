@@ -9,6 +9,10 @@
 
 #HSLIDE
 
+**"Como vivir sin librerías y no morir en el intento"**
+
+#HSLIDE
+
 #### Meetup App
 
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
@@ -27,7 +31,7 @@ height="480">
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
 
 #HSLIDE
-
+   ¿?
 - ¿Qué librerías necesito para crear esta app?
 - ¿Cómo comunico los componentes de mi app?
 - ¿Cómo manejo las imágenes?
@@ -509,7 +513,70 @@ public class MTextView extends AppCompatTextView {
 height="500">
 
 #HSLIDE
-Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
+```java
+      public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+
+          private List<Meetup> meetups;
+
+          public EventAdapter(List<Meetup> meetups) {
+              this.meetups = meetups;
+              //imageLoaderHelper= new ImageLoaderHelper(ImageLoaderHelper.GLIDE);
+          }
+
+          public static class ViewHolder extends RecyclerView.ViewHolder
+          {
+              private TextView tviName,tviPlace,tviAddress,tviDesc;
+              private TextView tviDate,tviUrl;
+
+              public ViewHolder(View rootView) {
+                  super(rootView);
+                  tviName= (TextView) rootView.findViewById(R.id.tviName);
+                  tviPlace= (TextView) rootView.findViewById(R.id.tviPlace);
+                  tviAddress= (TextView) rootView.findViewById(R.id.tviAddress);
+                  tviDesc= (TextView) rootView.findViewById(R.id.tviDesc);
+                  tviDate= (TextView) rootView.findViewById(R.id.tviDate);
+                  tviUrl= (TextView) rootView.findViewById(R.id.tviUrl);
+              }
+          }
+```
+
+#VSLIDE
+```java
+
+     @Override
+       public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+           // create a new view
+           View v = LayoutInflater.from(parent.getContext())
+                   .inflate(R.layout.row_meetup, parent, false);
+           // set the view's size, margins, paddings and layout parameters
+           ViewHolder vh = new ViewHolder(v);
+           return vh;
+       }
+
+       @Override
+       public void onBindViewHolder(ViewHolder holder, int position) {
+           Meetup meetup = meetups.get(position);
+           if (meetup != null) {
+               String name= meetup.getName();
+               String place= meetup.getVenue().getName();
+               String address= meetup.getVenue().getAddress();
+               String desc= meetup.getDescription();
+               String url= meetup.getUrl();
+               holder.tviName.setText(name);
+               holder.tviPlace.setText(place);
+               holder.tviAddress.setText(address);
+               holder.tviDesc.setText(Html.fromHtml(desc));
+               holder.tviUrl.setText(url);
+           }
+       }
+
+       @Override
+       public int getItemCount() {
+           return meetups.size();
+       }
+```
+#HSLIDE
+Es recomendable descargar las librerías y agregarlas a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers.png)
  
  
