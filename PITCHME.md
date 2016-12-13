@@ -705,6 +705,20 @@ Clean Architecture
   - ##### DEMO **https://github.com/emedinaa/android-without-libraries/tree/dev**
   
 #HSLIDE
+  - #### Conclusiones
+  
+#HSLIDE
+
+ - No reinventar la rueda.
+ 
+  - Si una librería vale la pena, aprende de ella , estudia la técnica y úsala en tu proyecto.
+ 
+ - Haz que tu código no dependa de una sola librería.
+ 
+ - Estudia  la teoria mas que como usar una librería.
+
+ 
+#HSLIDE
   
   - ##### Referencias
   
@@ -716,6 +730,15 @@ Clean Architecture
 - Helpers [http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html](http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html)
 - Dependency Injection for testing [https://gumroad.com/l/DaggerlessDITesting#](https://gumroad.com/l/DaggerlessDITesting#)
 
+#VSLIDE
+
+- Custom Dialog [https://github.com/emedinaa/android_custom_dialog_fragment](https://github.com/emedinaa/android_custom_dialog_fragment)
+
+- SharedpreferencesHelper [https://github.com/emedinaa/sharedpreferenceshelper](https://github.com/emedinaa/sharedpreferenceshelper)
+
+- Custom View [https://github.com/emedinaa/aiesec_pucp_custom_comp_android](https://github.com/emedinaa/aiesec_pucp_custom_comp_android)
+
+- Clean Architecture [https://github.com/emedinaa/android-clean-architecture](https://github.com/emedinaa/android-clean-architecture)
 
 #HSLIDE
 
