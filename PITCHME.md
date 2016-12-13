@@ -390,6 +390,11 @@ Bueno... y como podemos usar este helper ?
 #HSLIDE
  
  - ##### UI & CustomViews
+ 
+#VSLIDE
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
+height="500">
   
 #HSLIDE
 Custom View
@@ -485,6 +490,11 @@ public class MTextView extends AppCompatTextView {
 #HSLIDE
  
  - ##### Adapters & RecyclerView
+ 
+#VSLIDE
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="500">
 
 #HSLIDE
 Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
