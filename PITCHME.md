@@ -9,10 +9,10 @@
  
 #HSLIDE
 [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
-<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png">
+<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png" height="471">
 
 #VSLIDE
-<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/google_android_architecture">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/google_android_architecture">
 
 #VSLIDE
 
