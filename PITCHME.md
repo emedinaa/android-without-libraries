@@ -575,6 +575,88 @@ height="500">
            return meetups.size();
        }
 ```
+
+#HSLIDE
+   Algunas librerías valen la pena... ¿Hán escuchado de Renderers?
+   
+#HSLIDE
+   
+   https://github.com/pedrovgs/Renderers
+  
+   ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers_library.png)
+   
+   Pedro Vicente Gómez Sánchez
+   
+#VSLIDE   
+
+   ```java
+   
+          dependencies{
+             compile 'com.github.pedrovgs:renderers:3.2.0'
+         }     
+   ```
+ 
+#VSLIDE   
+
+   ```java
+   
+         public class EventRenderer extends Renderer<Meetup> {
+
+             private static final String TAG ="EventRenderer" ;
+             private TextView tviName,tviPlace,tviAddress,tviDesc;
+             private TextView tviDate,tviUrl;
+             private final ImageLoaderHelper imageLoader;
+
+             public EventRenderer(ImageLoaderHelper imageLoader) {
+                 this.imageLoader = imageLoader;
+             }
+
+             @Override
+             protected void setUpView(View rootView) {
+                 tviName= (TextView) rootView.findViewById(R.id.tviName);
+                 tviPlace= (TextView) rootView.findViewById(R.id.tviPlace);
+                 tviAddress= (TextView) rootView.findViewById(R.id.tviAddress);
+                 tviDesc= (TextView) rootView.findViewById(R.id.tviDesc);
+                 tviDate= (TextView) rootView.findViewById(R.id.tviDate);
+                 tviUrl= (TextView) rootView.findViewById(R.id.tviUrl);
+             }
+
+             @Override
+             protected void hookListeners(View rootView) {
+             }   
+   ```
+#VSLIDE  
+   ```java
+   
+          @Override
+          protected View inflate(LayoutInflater inflater, ViewGroup parent) {
+              View inflatedView = inflater.inflate(R.layout.row_meetup, parent, false);
+              //ButterKnife.inject(this, inflatedView);
+              return inflatedView;
+          }
+
+          @Override
+          public void render() {
+              Meetup meetup = getContent();
+              Log.v(TAG, "meetup "+meetup);
+              renderThumbnail(meetup);
+              renderTitle(meetup);
+          }
+
+
+          private void renderTitle(Meetup meetup) {
+              String name= meetup.getName();
+              String place= meetup.getVenue().getName();
+              String address= meetup.getVenue().getAddress();
+              String desc= meetup.getDescription();
+              String url= meetup.getUrl();
+              tviName.setText(name);
+              tviPlace.setText(place);
+              tviAddress.setText(address);
+              tviDesc.setText(Html.fromHtml(proccessDesc(desc)));
+              tviUrl.setText(url);
+          } 
+   ```
 #HSLIDE
 Es recomendable descargar las librerías y agregarlas a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers.png)
