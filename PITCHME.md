@@ -8,12 +8,11 @@
 ###### https://github.com/emedinaa
  
 #HSLIDE
-[https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
-
+[https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 <img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png">
-#VSLIDE
 
-<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/google_android_architecture" height="640">
+#VSLIDE
+<img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/google_android_architecture">
 
 #VSLIDE
 
