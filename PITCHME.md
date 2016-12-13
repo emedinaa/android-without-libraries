@@ -6,7 +6,39 @@
 ###### @eduardomedina
    
 ###### https://github.com/emedinaa
- 
+#HSLIDE
+[https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png">
+
+#VSLIDE
+```Java
+   dependencies {
+     def presentationDependencies = rootProject.ext.presentationDependencies
+     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+     def developmentDependencies = rootProject.ext.developmentDependencies
+
+     compile project(':domain')
+     compile project(':data')
+
+     apt presentationDependencies.daggerCompiler
+     compile presentationDependencies.dagger
+     compile presentationDependencies.butterKnife
+     compile presentationDependencies.recyclerView
+     compile presentationDependencies.rxJava
+     compile presentationDependencies.rxAndroid
+     provided presentationDependencies.javaxAnnotation
+
+     androidTestCompile presentationTestDependencies.mockito
+     androidTestCompile presentationTestDependencies.dexmaker
+     androidTestCompile presentationTestDependencies.dexmakerMockito
+     androidTestCompile presentationTestDependencies.espresso
+     androidTestCompile presentationTestDependencies.testingSupportLib
+
+     //Development
+     compile developmentDependencies.leakCanary
+   }
+```
+
 #HSLIDE
 [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 <img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png" height="471">
