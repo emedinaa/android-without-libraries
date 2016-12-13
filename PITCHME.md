@@ -622,7 +622,27 @@ Clean Architecture
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
 
 #HSLIDE
-<!-- .slide: data-autoslide="20000"-->
+
+```Java
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        rviEvents.setHasFixedSize(true);
+
+        // use a linear layout manager
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        rviEvents.setLayoutManager(mLayoutManager);
+        int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
+        rviEvents.addItemDecoration(new MarginDecoration(margin));
+
+        EventMapper eventMapper= new EventMapper();
+        eventPresenter= new EventPresenter(new EventsRestInteractor(eventMapper));
+        eventPresenter.attachedView(this);
+
+    }
+    
+```
 
 #HSLIDE
 
