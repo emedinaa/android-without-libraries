@@ -2,10 +2,8 @@ package com.emedinaa.meetupapp.data.mapper;
 
 import com.emedinaa.meetupapp.data.entity.MemberEntity;
 import com.emedinaa.meetupapp.data.entity.PhotoEntity;
-import com.emedinaa.meetupapp.data.entity.UserEntity;
 import com.emedinaa.meetupapp.domain.entity.Member;
 import com.emedinaa.meetupapp.domain.entity.Photo;
-import com.emedinaa.meetupapp.domain.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

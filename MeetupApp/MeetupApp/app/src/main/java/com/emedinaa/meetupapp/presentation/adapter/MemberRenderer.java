@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.emedinaa.meetupapp.R;
-import com.emedinaa.meetupapp.common.media.ImageLoader;
 import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
 import com.emedinaa.meetupapp.domain.entity.Member;
 import com.emedinaa.meetupapp.domain.entity.Photo;

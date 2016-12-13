@@ -36,59 +36,46 @@ dependencies {
 
     //External libraries
     //PICASSO
-
     //http://square.github.io/picasso/
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
     //GLIDE
-
     //https://github.com/bumptech/glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 
+    //FRESCO
     //compile 'com.facebook.fresco:fresco:0.14.1'
 
     //BUTTERKNIFE
-
     //http://jakewharton.github.io/butterknife/
-
     //compile 'com.jakewharton:butterknife:8.4.0'
 
     //DAGGER 2
-
     //https://github.com/google/dagger
-
     //https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p
-
     //compile 'com.google.dagger:dagger:2.x'
-
     //https://bitbucket.org/hvisser/android-apt
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
     apt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+
     //RETROFIT 2
-
     //https://github.com/square/retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+
     //GSON
-
     //https://github.com/google/gson
-    //INTERCEPTOR
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
     //OKHTTP
-
     //http://square.github.io/okhttp/
-
     //compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 
     //EVENTBUS
-
     //https://github.com/greenrobot/EventBus
-
     //compile 'org.greenrobot:eventbus:3.0.0'
 
-    //RENDERER
-
+    //RENDERERS
     //compile 'com.github.pedrovgs:renderers:3.2.0'
-    //compile 'com.android.support:support-v4:23.4.0'
-
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 
 }

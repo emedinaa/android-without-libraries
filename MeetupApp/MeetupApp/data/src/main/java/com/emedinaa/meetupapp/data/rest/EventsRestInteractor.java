@@ -1,7 +1,5 @@
 package com.emedinaa.meetupapp.data.rest;
 
-import android.util.Log;
-
 import com.emedinaa.meetupapp.data.mapper.EventMapper;
 import com.emedinaa.meetupapp.data.rest.entity.EventList;
 import com.emedinaa.meetupapp.domain.callback.StorageCallback;
@@ -29,7 +27,7 @@ public class EventsRestInteractor implements EventsInteractor {
     @Override
     public void events(String group_urlname, final StorageCallback storageCallback) {
         Map<String, String> options = new HashMap<>();
-        options.put("key","3d1540104e112155653a2f775452a1f");
+        options.put("key",Constants.MEETUPKEY);
         options.put("sign","true");
         options.put("photo-host","public");
         options.put("status","upcoming");
@@ -72,10 +70,11 @@ public class EventsRestInteractor implements EventsInteractor {
     public void pastEvents(String group_urlname, final StorageCallback storageCallback) {
 
         Map<String, String> options = new HashMap<>();
-        options.put("key","3d1540104e112155653a2f775452a1f");
+        options.put("key",Constants.MEETUPKEY);
         options.put("sign","true");
         options.put("photo-host","public");
         options.put("status","upcoming,past");
+        //options.put("status","upcoming,past");
         options.put("group_urlname", group_urlname);
         options.put("page", "200");
 

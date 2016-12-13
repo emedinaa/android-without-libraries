@@ -2,8 +2,10 @@ package com.emedinaa.meetupapp.data.mapper;
 
 import com.emedinaa.meetupapp.data.entity.GroupEntity;
 import com.emedinaa.meetupapp.data.entity.MeetupEntity;
+import com.emedinaa.meetupapp.data.entity.VenueEntity;
 import com.emedinaa.meetupapp.domain.entity.Group;
 import com.emedinaa.meetupapp.domain.entity.Meetup;
+import com.emedinaa.meetupapp.domain.entity.Venue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,13 @@ public class EventMapper {
         if(meetupEntity==null) return meetup;
         meetup.setId(meetupEntity.getId());
         meetup.setName(meetupEntity.getName());
+        meetup.setVenue(transformVenue(meetupEntity.getVenue()));
         meetup.setStatus(meetupEntity.getStatus());
         meetup.setTime(meetupEntity.getTime());
         meetup.setWaitlist_count(meetupEntity.getWaitlist_count());
         meetup.setYes_rsvp_coun(meetupEntity.getYes_rsvp_coun());
         meetup.setLink(meetupEntity.getLink());
+        meetup.setUrl(meetupEntity.getEvent_url());
         meetup.setDescription(meetupEntity.getDescription());
         meetup.setVisibility(meetupEntity.getVisibility());
         meetup.setGroup(transformGroup(meetupEntity.getGroup()));
@@ -54,6 +58,19 @@ public class EventMapper {
         group.setWho(groupEntity.getWho());
 
         return group;
+    }
+
+    private Venue transformVenue(VenueEntity venueEntity){
+        Venue venue= new Venue();
+        if(venueEntity==null) return venue;
+        venue.setId(venueEntity.getId());
+        venue.setName(venueEntity.getName());
+        venue.setAddress(venueEntity.getAddress_1());
+        venue.setCity(venueEntity.getCity());
+        venue.setCountry(venueEntity.getCountry());
+        venue.setCountryName(venueEntity.getLocalized_country_name());
+        venue.setAddress(venueEntity.getAddress_1());
+        return venue;
     }
 
 }

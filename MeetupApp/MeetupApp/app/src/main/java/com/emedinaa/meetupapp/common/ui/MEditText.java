@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 
 /**
  * Created by eduardo on 05/11/16.

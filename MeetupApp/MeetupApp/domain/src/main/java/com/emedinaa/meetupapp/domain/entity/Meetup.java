@@ -9,6 +9,7 @@ public class Meetup implements Serializable {
 
     private int id;
     private String name;
+    private Venue venue;
     private String status;
     private String time;
     private  int waitlist_count;
@@ -16,6 +17,7 @@ public class Meetup implements Serializable {
     private String link;
     private String description;
     private String visibility;
+    private String url;
     private Group group;
 
     public int getId() {
@@ -98,11 +100,28 @@ public class Meetup implements Serializable {
         this.group = group;
     }
 
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         return "Meetup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", venue=" + venue +
                 ", status='" + status + '\'' +
                 ", time='" + time + '\'' +
                 ", waitlist_count=" + waitlist_count +
@@ -110,6 +129,7 @@ public class Meetup implements Serializable {
                 ", link='" + link + '\'' +
                 ", description='" + description + '\'' +
                 ", visibility='" + visibility + '\'' +
+                ", url='" + url + '\'' +
                 ", group=" + group +
                 '}';
     }

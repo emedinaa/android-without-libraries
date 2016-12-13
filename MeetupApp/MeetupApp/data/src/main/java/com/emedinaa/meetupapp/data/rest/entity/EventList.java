@@ -1,7 +1,6 @@
 package com.emedinaa.meetupapp.data.rest.entity;
 
 import com.emedinaa.meetupapp.data.entity.MeetupEntity;
-import com.emedinaa.meetupapp.domain.entity.Meetup;
 
 import java.util.List;
 

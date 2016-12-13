@@ -9,12 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.emedinaa.meetupapp.R;
 import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
+import com.emedinaa.meetupapp.common.ui.MarginDecoration;
 import com.emedinaa.meetupapp.data.mapper.EventMapper;
 import com.emedinaa.meetupapp.data.rest.EventsRestInteractor;
 import com.emedinaa.meetupapp.domain.entity.Meetup;
+import com.emedinaa.meetupapp.presentation.adapter.EventAdapter;
 import com.emedinaa.meetupapp.presentation.adapter.EventRenderer;
 import com.emedinaa.meetupapp.presentation.presenter.EventPresenter;
 import com.emedinaa.meetupapp.presentation.view.EventView;
@@ -45,6 +48,7 @@ public class EventsFragment extends Fragment implements EventView {
 
     private OnFragmentListener mListener;
     private RecyclerView rviEvents;
+    private ProgressBar pBar;
     private List<Meetup> meetups;
     private EventPresenter eventPresenter;
     private String eventType=null;
@@ -88,6 +92,7 @@ public class EventsFragment extends Fragment implements EventView {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_events, container, false);
         rviEvents= (RecyclerView) view.findViewById(R.id.rviEvents);
+        pBar=(ProgressBar)view.findViewById(R.id.pBar);
         return view;
     }
 
@@ -99,6 +104,8 @@ public class EventsFragment extends Fragment implements EventView {
         // use a linear layout manager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rviEvents.setLayoutManager(mLayoutManager);
+        int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
+        rviEvents.addItemDecoration(new MarginDecoration(margin));
 
         EventMapper eventMapper= new EventMapper();
         eventPresenter= new EventPresenter(new EventsRestInteractor(eventMapper));
@@ -144,6 +151,12 @@ public class EventsFragment extends Fragment implements EventView {
         RendererBuilder<Meetup> rendererBuilder = new RendererBuilder<Meetup>(renderer);
         RVRendererAdapter<Meetup> rendererAdapter= new RVRendererAdapter<Meetup>(rendererBuilder,this.meetups);
         rviEvents.setAdapter(rendererAdapter);
+
+        //renderMeetupsAdapter(meetups);
+    }
+
+    private void renderMeetupsAdapter(List<Meetup> meetups){
+        rviEvents.setAdapter(new EventAdapter(meetups));
     }
 
     @Override
@@ -158,11 +171,11 @@ public class EventsFragment extends Fragment implements EventView {
 
     @Override
     public void showLoading() {
-
+        pBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        pBar.setVisibility(View.GONE);
     }
 }

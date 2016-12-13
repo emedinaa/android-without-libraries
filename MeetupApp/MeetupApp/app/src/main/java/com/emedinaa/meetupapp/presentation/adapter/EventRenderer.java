@@ -1,17 +1,15 @@
 package com.emedinaa.meetupapp.presentation.adapter;
 
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.emedinaa.meetupapp.R;
-import com.emedinaa.meetupapp.common.media.ImageLoader;
 import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
 import com.emedinaa.meetupapp.domain.entity.Meetup;
-import com.emedinaa.meetupapp.domain.entity.Member;
-import com.emedinaa.meetupapp.domain.entity.Photo;
 import com.pedrogomez.renderers.Renderer;
 
 /**
@@ -19,7 +17,9 @@ import com.pedrogomez.renderers.Renderer;
  */
 public class EventRenderer extends Renderer<Meetup> {
 
-    private TextView tviName;
+    private static final String TAG ="EventRenderer" ;
+    private TextView tviName,tviPlace,tviAddress,tviDesc;
+    private TextView tviDate,tviUrl;
     private final ImageLoaderHelper imageLoader;
 
     public EventRenderer(ImageLoaderHelper imageLoader) {
@@ -29,6 +29,11 @@ public class EventRenderer extends Renderer<Meetup> {
     @Override
     protected void setUpView(View rootView) {
         tviName= (TextView) rootView.findViewById(R.id.tviName);
+        tviPlace= (TextView) rootView.findViewById(R.id.tviPlace);
+        tviAddress= (TextView) rootView.findViewById(R.id.tviAddress);
+        tviDesc= (TextView) rootView.findViewById(R.id.tviDesc);
+        tviDate= (TextView) rootView.findViewById(R.id.tviDate);
+        tviUrl= (TextView) rootView.findViewById(R.id.tviUrl);
     }
 
     @Override
@@ -46,16 +51,30 @@ public class EventRenderer extends Renderer<Meetup> {
     @Override
     public void render() {
         Meetup meetup = getContent();
+        Log.v(TAG, "meetup "+meetup);
         renderThumbnail(meetup);
         renderTitle(meetup);
-        renderType(meetup);
     }
 
-    private void renderType(Meetup meetup) {
-    }
 
     private void renderTitle(Meetup meetup) {
-        tviName.setText(meetup.getName());
+        String name= meetup.getName();
+        String place= meetup.getVenue().getName();
+        String address= meetup.getVenue().getAddress();
+        String desc= meetup.getDescription();
+        String url= meetup.getUrl();
+        tviName.setText(name);
+        tviPlace.setText(place);
+        tviAddress.setText(address);
+        tviDesc.setText(Html.fromHtml(proccessDesc(desc)));
+        tviUrl.setText(url);
+    }
+    private String proccessDesc(String desc){
+        if(desc==null) return "";
+        if(desc.length()>160){
+            return desc.substring(0,160)+"...";
+        }
+        return desc;
     }
 
     private void renderThumbnail(Meetup meetup) {

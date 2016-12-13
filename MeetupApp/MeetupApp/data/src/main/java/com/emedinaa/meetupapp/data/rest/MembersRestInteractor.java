@@ -31,7 +31,7 @@ public class MembersRestInteractor implements MembersInteractor {
     @Override
     public void membersByGroup(String group_urlname, final StorageCallback storageCallback) {
         Map<String, String> options = new HashMap<>();
-        options.put("key","3d1540104e112155653a2f775452a1f");
+        options.put("key",Constants.MEETUPKEY);
         //options.put("key","");
         options.put("sign","true");
         options.put("photo-host","public");

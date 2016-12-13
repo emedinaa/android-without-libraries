@@ -6,16 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.emedinaa.meetupapp.R;
 import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
+import com.emedinaa.meetupapp.common.ui.MarginDecoration;
 import com.emedinaa.meetupapp.data.mapper.MemberMapper;
 import com.emedinaa.meetupapp.data.rest.MembersRestInteractor;
-import com.emedinaa.meetupapp.domain.callback.StorageCallback;
 import com.emedinaa.meetupapp.domain.entity.Member;
 import com.emedinaa.meetupapp.presentation.adapter.MemberRenderer;
 import com.emedinaa.meetupapp.presentation.presenter.MemberPresenter;
@@ -50,6 +50,7 @@ public class MembersFragment extends Fragment implements MemberView {
     private RecyclerView rviMembers;
     private List<Member> members;
     private MemberPresenter memberPresenter;
+    private ProgressBar pBar;
 
     public MembersFragment() {
         // Required empty public constructor
@@ -88,6 +89,7 @@ public class MembersFragment extends Fragment implements MemberView {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_members, container, false);
         rviMembers= (RecyclerView) view.findViewById(R.id.rviMembers);
+        pBar=(ProgressBar)view.findViewById(R.id.pBar);
         return view;
     }
 
@@ -99,6 +101,8 @@ public class MembersFragment extends Fragment implements MemberView {
         // use a linear layout manager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rviMembers.setLayoutManager(mLayoutManager);
+        int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
+        rviMembers.addItemDecoration(new MarginDecoration(margin));
 
         MemberMapper memberMapper= new MemberMapper();
         memberPresenter= new MemberPresenter(new MembersRestInteractor(memberMapper));
@@ -130,24 +134,7 @@ public class MembersFragment extends Fragment implements MemberView {
 
     public void getMembers() {
         memberPresenter.getMembers(GROUP);
-        /*MemberMapper memberMapper= new MemberMapper();
-        MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
-        membersInteractor.membersByGroup("Android-Dev-Peru",restCallback);*/
     }
-
-    private StorageCallback restCallback= new StorageCallback() {
-        @Override
-        public void onSuccess(Object object) {
-            Log.v(TAG, "onSuccess "+object);
-
-            renderMembers((List<Member>)(object));
-        }
-
-        @Override
-        public void onFailure(Exception e) {
-            Log.v(TAG, "onFailure "+e.getMessage());
-        }
-    };
 
     @Override
     public void renderMembers(List<Member> members) {
@@ -170,11 +157,11 @@ public class MembersFragment extends Fragment implements MemberView {
 
     @Override
     public void showLoading() {
-
+        pBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        pBar.setVisibility(View.GONE);
     }
 }

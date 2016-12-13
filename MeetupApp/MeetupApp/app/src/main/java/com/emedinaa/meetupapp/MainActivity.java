@@ -18,14 +18,11 @@ import com.emedinaa.meetupapp.presentation.fragments.OnFragmentListener;
 public class MainActivity extends AppCompatActivity implements OnFragmentListener {
 
     private static final String TAG = "MainActivity";
-    private final String GROUP_NAME="Android-Dev-Peru";
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
 
-    // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
-    // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private ActionBarDrawerToggle drawerToggle;
 
     @Override
@@ -40,10 +37,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentListene
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
 
-        //testService();
-        //testMembers(GROUP_NAME);
-        //setMemberFragment(savedInstanceState);
         setupDrawerContent(nvDrawer);
+
+        setMenuItemFirst();
+    }
+
+    private void setMenuItemFirst() {
+        selectDrawerItem(nvDrawer.getMenu().getItem(0));
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -135,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentListene
         }
 
     }
-
 
     /**
      * References

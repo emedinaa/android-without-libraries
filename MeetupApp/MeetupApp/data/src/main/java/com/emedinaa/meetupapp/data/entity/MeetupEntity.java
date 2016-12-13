@@ -9,6 +9,7 @@ public class MeetupEntity implements Serializable {
 
     private int id;
     private String name;
+    private VenueEntity venue;
     private String status;
     private String time;
     private  int waitlist_count;
@@ -16,6 +17,7 @@ public class MeetupEntity implements Serializable {
     private String link;
     private String description;
     private String visibility;
+    private String event_url;
     private GroupEntity group;
 
     public int getId() {
@@ -96,5 +98,21 @@ public class MeetupEntity implements Serializable {
 
     public void setGroup(GroupEntity group) {
         this.group = group;
+    }
+
+    public VenueEntity getVenue() {
+        return venue;
+    }
+
+    public void setVenue(VenueEntity venue) {
+        this.venue = venue;
+    }
+
+    public String getEvent_url() {
+        return event_url;
+    }
+
+    public void setEvent_url(String event_url) {
+        this.event_url = event_url;
     }
 }

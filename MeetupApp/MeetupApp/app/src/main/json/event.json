@@ -1,0 +1,57 @@
+{
+  "results": [
+    {
+      "utc_offset": -18000000,
+      "venue": {
+        "country": "pe",
+        "localized_country_name": "Peru",
+        "city": "Lima",
+        "address_1": "Av. República de Panamá 3591 Piso 5 San Isidro, Lima",
+        "name": "Belatrix",
+        "lon": -77.019058,
+        "id": 23966892,
+        "lat": -12.099877,
+        "repinned": false
+      },
+      "headcount": 0,
+      "visibility": "public",
+      "waitlist_count": 0,
+      "created": 1480346156000,
+      "maybe_rsvp_count": 0,
+      "description": "<p>Hola Android Loverssss!<\/p> <p>Vamos despedir este gran año haciendo esta última meetUp con una temática distinta. Queremos ayudar a Pampa Chica, una comunidad a una hora de Oxapampa. Deseamos llevar un regalo o una prenda (ropa abrigadora) a los niños de esta comunidad. A cambio de sus regalos les ofreceremos unas charlas con temas súper interesantes.<\/p> <p>- \"Como vivir sin librerías y no morir en el intento\"  por <a href=\"https:\/\/twitter.com\/eduardomedina\">Edu Medina<\/a><\/p> <p>- \"Rx\" por <a href=\"https:\/\/twitter.com\/pablojohnson88\">Pablo Johnson<\/a><\/p> <p>- \"Muevelo con Android (Animaciones)\" por <a href=\"https:\/\/twitter.com\/carlospinan\">Carlos Piñan<\/a><\/p> <p>\n\n\nRequisitos:<\/p> <p>- Revisar el github de la comunidad <a href=\"https:\/\/github.com\/Android-Dev-Peru\/Meetup-6\"><a href=\"https:\/\/github.com\/Android-Dev-Peru\" class=\"linkified\">https:\/\/github.com\/Android-Dev-Peru<\/a><\/a><\/p> <p><br\/>- Un regalo (con una nota indicando la edad sugerida del regalo) o una prenda (puede ser usada pero en buen estado) abrigadora.<\/p> <p>\n\n\nAgradecimientos:<\/p> <p><a href=\"https:\/\/www.facebook.com\/BelatrixArgentina\">Belatrix<\/a>, por conseguir el  espacio para la charla y colaborar con la comunidad.<\/p> <p>* El ingreso es libre.<\/p>",
+      "event_url": "https:\/\/www.meetup.com\/Android-Dev-Peru\/events\/235880560\/",
+      "yes_rsvp_count": 41,
+      "announced": true,
+      "name": "Meetup #9",
+      "id": "235880560",
+      "time": 1481673600000,
+      "updated": 1480901030000,
+      "group": {
+        "join_mode": "open",
+        "created": 1421262820000,
+        "name": "Android Dev Perú",
+        "group_lon": -77.05000305175781,
+        "id": 18335119,
+        "urlname": "Android-Dev-Peru",
+        "group_lat": -12.069999694824219,
+        "who": "Android Lovers"
+      },
+      "status": "upcoming"
+    }
+  ],
+  "meta": {
+    "next": "",
+    "method": "Events",
+    "total_count": 1,
+    "link": "https:\/\/api.meetup.com\/2\/events",
+    "count": 1,
+    "description": "Access Meetup events using a group, member, or event id. Events in private groups are available only to authenticated members of those groups. To search events by topic or location, see [Open Events](\/meetup_api\/docs\/2\/open_events).",
+    "lon": "",
+    "title": "Meetup Events v2",
+    "url": "https:\/\/api.meetup.com\/2\/events?offset=0&sign=True&format=json&limited_events=False&group_urlname=Android-Dev-Peru&photo-host=public&page=200&fields=&key=3d1540104e112155653a2f775452a1f&order=time&status=upcoming&desc=false",
+    "signed_url": "https:\/\/api.meetup.com\/2\/events?offset=0&format=json&limited_events=False&group_urlname=Android-Dev-Peru&photo-host=public&page=200&fields=&order=time&status=upcoming&desc=false&sig_id=52198952&sig=95207140945df90ccb3344f4f38723a63be41e72",
+    "id": "",
+    "updated": 1480901030000,
+    "lat": ""
+  }
+}
