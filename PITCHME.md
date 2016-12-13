@@ -28,12 +28,12 @@ height="480">
 
 #HSLIDE
 
-- ¿Qué librerías necesito para crear una app?
+- ¿Qué librerías necesito para crear esta app?
 - ¿Cómo comunico los componentes de mi app?
 - ¿Cómo manejo las imágenes?
 - ¿Con que librería consumo los servicios Resful?
-- ¿Cómo evito el cruce de dependencias en el proyecto?
-- ¿Uso alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
+- ¿Cómo evito el cruce de dependencias?
+- ¿Usar o no alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
 
 #HSLIDE
 ###### [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
@@ -657,6 +657,101 @@ Output
 Android MVP
 
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="540">
+
+#VSLIDE
+
+```Java
+
+   public abstract class BasePresenter<V> implements Presenter<V> {
+
+       protected V view;
+
+       @Override
+       public void attachedView(V view) {
+           this.view= view;
+       }
+
+       @Override
+       public void detachView() {
+           this.view= null;
+       }
+   }
+```
+
+```Java
+
+   public interface Presenter<V> {
+
+       void attachedView(V view);
+       void detachView();
+   }
+```
+#VSLIDE
+```Java
+
+    private final EventsInteractor eventsInteractor;
+
+    public EventPresenter(EventsInteractor eventsInteractor) {
+        this.eventsInteractor = eventsInteractor;
+    }
+
+    public void getPastEvents(String groupName){
+        view.showLoading();
+        this.eventsInteractor.pastEvents(groupName,restCallback);
+    }
+    public void getUpcomingEvent(String groupName){
+        view.showLoading();
+        this.eventsInteractor.events(groupName,restCallback);
+    }
+
+    private StorageCallback restCallback= new StorageCallback() {
+        @Override
+        public void onSuccess(Object object) {
+            view.renderMeetups((List<Meetup>)(object));
+            view.hideLoading();
+        }
+
+        @Override
+        public void onFailure(Exception e) {
+            String message= e.getMessage();
+            view.showMessage(message);
+            view.hideLoading();
+        }
+    };
+```
+#VSLIDE
+```Java
+
+   public class MemberPresenter extends BasePresenter<MemberView> {
+
+       private final MembersInteractor membersInteractor;
+
+       public MemberPresenter(MembersInteractor membersInteractor) {
+           this.membersInteractor = membersInteractor;
+       }
+
+       public void getMembers(String groupName){
+           view.showLoading();
+           this.membersInteractor.membersByGroup(groupName,restCallback);
+       }
+
+
+       private StorageCallback restCallback= new StorageCallback() {
+           @Override
+           public void onSuccess(Object object) {
+               view.renderMembers((List<Member>)(object));
+               view.hideLoading();
+           }
+
+           @Override
+           public void onFailure(Exception e) {
+               String message= e.getMessage();
+               view.showMessage(message);
+               view.hideLoading();
+           }
+       };
+   }
+```
 
 #HSLIDE
 Clean Architecture
