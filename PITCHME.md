@@ -6,6 +6,39 @@
 ###### @eduardomedina
    
 ###### https://github.com/emedinaa
+
+#HSLIDE
+
+**"Como vivir sin librerías y no morir en el intento"**
+
+#HSLIDE
+
+#### Meetup App
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
+height="500">
+
+#VSLIDE
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
+height="480">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="480">
+
+#VSLIDE
+[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
+
+#HSLIDE
+   ¿?
+- ¿Qué librerías necesito para crear esta app?
+- ¿Cómo comunico los componentes de mi app?
+- ¿Cómo manejo las imágenes?
+- ¿Con que librería consumo los servicios Resful?
+- ¿Cómo evito el cruce de dependencias?
+- ¿Usar o no alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
+
 #HSLIDE
 ###### [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png" height="520">
@@ -77,30 +110,17 @@ dependencies {
     // Espresso UI Testing
     androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
-androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    
 ```
-#HSLIDE
-Meetup App
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png">
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png">
-
-#VSLIDE
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png">
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png">
-
-#VSLIDE
-[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
 
 #HSLIDE
 
-- ¿Qué librerias necesito para crear una app?
-- Crear Helpers
-- No depender de una sola librería
-- ¿Cómo integrar una librería a nuestro proyecto?
-- Librerías que realmente sirven
-- Arquitectura : Clean y MVP
-- Comunicación entre componentes
+#### Meetup App
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
+height="500">
 
 #HSLIDE
 ```
@@ -169,14 +189,37 @@ Meetup App
    //RENDERERS
    compile 'com.github.pedrovgs:renderers:3.2.0'
    
+   //RxJava & RxAndroid
+   compile 'io.reactivex:rxandroid:1.2.1'
+    
+   compile 'io.reactivex:rxjava:1.1.6'
+    
+   compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+   
+   //Transforms 
+   //https://github.com/wasabeef/picasso-transformations
+   
+   compile 'jp.wasabeef:picasso-transformations:2.1.0'
+   
+   // If you want to use the GPU Filters
+   compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+   
+   //Fonts
+   //https://github.com/chrisjenx/Calligraphy
+   compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+   
 ```
 
 #HSLIDE
  Helper
  
- - ##### ImageLoader
- 
  - ##### ImageLoaderHelper
+ 
+#VSLIDE
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
+height="480">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="480">
  
 #HSLIDE
 
@@ -361,8 +404,13 @@ Bueno... y como podemos usar este helper ?
 ```
 
 #HSLIDE
-
-  - ##### UI
+ 
+ - ##### UI & CustomViews
+ 
+#VSLIDE
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png"
+height="500">
   
 #HSLIDE
 Custom View
@@ -456,20 +504,171 @@ public class MTextView extends AppCompatTextView {
 ```
   
 #HSLIDE
-
-  - ##### Adapters
-        
-  - ##### Renderers 
+ 
+ - ##### Adapters & RecyclerView
+ 
+#VSLIDE
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png" height="500">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="500">
 
 #HSLIDE
-Es recomendable cargar en local,las librerías a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
+```java
+      public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+
+          private List<Meetup> meetups;
+
+          public EventAdapter(List<Meetup> meetups) {
+              this.meetups = meetups;
+              //imageLoaderHelper= new ImageLoaderHelper(ImageLoaderHelper.GLIDE);
+          }
+
+          public static class ViewHolder extends RecyclerView.ViewHolder
+          {
+              private TextView tviName,tviPlace,tviAddress,tviDesc;
+              private TextView tviDate,tviUrl;
+
+              public ViewHolder(View rootView) {
+                  super(rootView);
+                  tviName= (TextView) rootView.findViewById(R.id.tviName);
+                  tviPlace= (TextView) rootView.findViewById(R.id.tviPlace);
+                  tviAddress= (TextView) rootView.findViewById(R.id.tviAddress);
+                  tviDesc= (TextView) rootView.findViewById(R.id.tviDesc);
+                  tviDate= (TextView) rootView.findViewById(R.id.tviDate);
+                  tviUrl= (TextView) rootView.findViewById(R.id.tviUrl);
+              }
+          }
+```
+
+#VSLIDE
+```java
+
+     @Override
+       public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+           // create a new view
+           View v = LayoutInflater.from(parent.getContext())
+                   .inflate(R.layout.row_meetup, parent, false);
+           // set the view's size, margins, paddings and layout parameters
+           ViewHolder vh = new ViewHolder(v);
+           return vh;
+       }
+
+       @Override
+       public void onBindViewHolder(ViewHolder holder, int position) {
+           Meetup meetup = meetups.get(position);
+           if (meetup != null) {
+               String name= meetup.getName();
+               String place= meetup.getVenue().getName();
+               String address= meetup.getVenue().getAddress();
+               String desc= meetup.getDescription();
+               String url= meetup.getUrl();
+               holder.tviName.setText(name);
+               holder.tviPlace.setText(place);
+               holder.tviAddress.setText(address);
+               holder.tviDesc.setText(Html.fromHtml(desc));
+               holder.tviUrl.setText(url);
+           }
+       }
+
+       @Override
+       public int getItemCount() {
+           return meetups.size();
+       }
+```
+
+#HSLIDE
+   Algunas librerías valen la pena... ¿Hán escuchado de Renderers?
+   
+#HSLIDE
+   
+   https://github.com/pedrovgs/Renderers
+  
+   ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers_library.png)
+   
+   Pedro Vicente Gómez Sánchez
+   
+#VSLIDE   
+
+   ```java
+   
+          dependencies{
+             compile 'com.github.pedrovgs:renderers:3.2.0'
+         }     
+   ```
+ 
+#VSLIDE   
+
+   ```java
+   
+         public class EventRenderer extends Renderer<Meetup> {
+
+             private static final String TAG ="EventRenderer" ;
+             private TextView tviName,tviPlace,tviAddress,tviDesc;
+             private TextView tviDate,tviUrl;
+             private final ImageLoaderHelper imageLoader;
+
+             public EventRenderer(ImageLoaderHelper imageLoader) {
+                 this.imageLoader = imageLoader;
+             }
+
+             @Override
+             protected void setUpView(View rootView) {
+                 tviName= (TextView) rootView.findViewById(R.id.tviName);
+                 tviPlace= (TextView) rootView.findViewById(R.id.tviPlace);
+                 tviAddress= (TextView) rootView.findViewById(R.id.tviAddress);
+                 tviDesc= (TextView) rootView.findViewById(R.id.tviDesc);
+                 tviDate= (TextView) rootView.findViewById(R.id.tviDate);
+                 tviUrl= (TextView) rootView.findViewById(R.id.tviUrl);
+             }
+
+             @Override
+             protected void hookListeners(View rootView) {
+             }   
+   ```
+#VSLIDE  
+   ```java
+   
+          @Override
+          protected View inflate(LayoutInflater inflater, ViewGroup parent) {
+              View inflatedView = inflater.inflate(R.layout.row_meetup, parent, false);
+              //ButterKnife.inject(this, inflatedView);
+              return inflatedView;
+          }
+
+          @Override
+          public void render() {
+              Meetup meetup = getContent();
+              Log.v(TAG, "meetup "+meetup);
+              renderThumbnail(meetup);
+              renderTitle(meetup);
+          }
+
+
+          private void renderTitle(Meetup meetup) {
+              String name= meetup.getName();
+              String place= meetup.getVenue().getName();
+              String address= meetup.getVenue().getAddress();
+              String desc= meetup.getDescription();
+              String url= meetup.getUrl();
+              tviName.setText(name);
+              tviPlace.setText(place);
+              tviAddress.setText(address);
+              tviDesc.setText(Html.fromHtml(proccessDesc(desc)));
+              tviUrl.setText(url);
+          } 
+   ```
+#HSLIDE
+Es recomendable descargar las librerías y agregarlas a nuestro proyecto  y poder realizar los cambios que sean necesarios para que se ajusten a lo que necesitemos.
  ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers.png)
  
  
 #HSLIDE
+  
   - ##### Storage Options
   
+  
 #HSLIDE
+
   SharedPreferencesHelper
   ```Java
   
@@ -571,7 +770,9 @@ DefaultSharedPreferencesHelper
       }
   }
 ```
+
 #HSLIDE
+
 Guardar y obtener el Email
 
 ```Java
@@ -598,9 +799,108 @@ Output
 ```
 
 #HSLIDE
+  
+  - ##### Arquitectura de la App
+  
+#HSLIDE
 Android MVP
 
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="540">
+
+#VSLIDE
+
+```Java
+
+   public abstract class BasePresenter<V> implements Presenter<V> {
+
+       protected V view;
+
+       @Override
+       public void attachedView(V view) {
+           this.view= view;
+       }
+
+       @Override
+       public void detachView() {
+           this.view= null;
+       }
+   }
+```
+
+```Java
+
+   public interface Presenter<V> {
+
+       void attachedView(V view);
+       void detachView();
+   }
+```
+#VSLIDE
+```Java
+
+    private final EventsInteractor eventsInteractor;
+
+    public EventPresenter(EventsInteractor eventsInteractor) {
+        this.eventsInteractor = eventsInteractor;
+    }
+
+    public void getPastEvents(String groupName){
+        view.showLoading();
+        this.eventsInteractor.pastEvents(groupName,restCallback);
+    }
+    public void getUpcomingEvent(String groupName){
+        view.showLoading();
+        this.eventsInteractor.events(groupName,restCallback);
+    }
+
+    private StorageCallback restCallback= new StorageCallback() {
+        @Override
+        public void onSuccess(Object object) {
+            view.renderMeetups((List<Meetup>)(object));
+            view.hideLoading();
+        }
+
+        @Override
+        public void onFailure(Exception e) {
+            String message= e.getMessage();
+            view.showMessage(message);
+            view.hideLoading();
+        }
+    };
+```
+#VSLIDE
+```Java
+
+   public class MemberPresenter extends BasePresenter<MemberView> {
+
+       private final MembersInteractor membersInteractor;
+
+       public MemberPresenter(MembersInteractor membersInteractor) {
+           this.membersInteractor = membersInteractor;
+       }
+
+       public void getMembers(String groupName){
+           view.showLoading();
+           this.membersInteractor.membersByGroup(groupName,restCallback);
+       }
+
+
+       private StorageCallback restCallback= new StorageCallback() {
+           @Override
+           public void onSuccess(Object object) {
+               view.renderMembers((List<Member>)(object));
+               view.hideLoading();
+           }
+
+           @Override
+           public void onFailure(Exception e) {
+               String message= e.getMessage();
+               view.showMessage(message);
+               view.hideLoading();
+           }
+       };
+   }
+```
 
 #HSLIDE
 Clean Architecture
@@ -610,25 +910,78 @@ Clean Architecture
 #VSLIDE
 
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
-
+ 
 #HSLIDE
+  
+  - ##### S. O. L. I. D.
+  
+#HSLIDE
+
 ##### Inversión de Dependencias e Inyección de Dependencias
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
 
 #HSLIDE
-<!-- .slide: data-autoslide="20000"-->
+
+```Java
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        rviEvents.setHasFixedSize(true);
+
+        // use a linear layout manager
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        rviEvents.setLayoutManager(mLayoutManager);
+        int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
+        rviEvents.addItemDecoration(new MarginDecoration(margin));
+
+        EventMapper eventMapper= new EventMapper();
+        eventPresenter= new EventPresenter(new EventsRestInteractor(eventMapper));
+        eventPresenter.attachedView(this);
+
+    }
+    
+```
 
 #HSLIDE
+  
+  - ##### DEMO **https://github.com/emedinaa/android-without-libraries/tree/dev**
+  
+#HSLIDE
+  - #### Conclusiones
+  
+#HSLIDE
 
-References 
+ - No reinventar la rueda.
+ 
+  - Si una librería vale la pena, aprende de ella , estudia la técnica y úsala en tu proyecto.
+ 
+ - Haz que tu código no dependa de una sola librería.
+ 
+ - Estudia  la teoria mas que como usar una librería.
+
+ 
+#HSLIDE
+  
+  - ##### Referencias
+  
+#HSLIDE
 
 - Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
+- MVP & Clean Architecture [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
+- Uncle Bob Clean Architecture [https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
+- Helpers [http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html](http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html)
+- Dependency Injection for testing [https://gumroad.com/l/DaggerlessDITesting#](https://gumroad.com/l/DaggerlessDITesting#)
 
-- Clean Architecture
+#VSLIDE
 
-- Android MVP
+- Custom Dialog [https://github.com/emedinaa/android_custom_dialog_fragment](https://github.com/emedinaa/android_custom_dialog_fragment)
 
-- Helpers
+- SharedpreferencesHelper [https://github.com/emedinaa/sharedpreferenceshelper](https://github.com/emedinaa/sharedpreferenceshelper)
+
+- Custom View [https://github.com/emedinaa/aiesec_pucp_custom_comp_android](https://github.com/emedinaa/aiesec_pucp_custom_comp_android)
+
+- Clean Architecture [https://github.com/emedinaa/android-clean-architecture](https://github.com/emedinaa/android-clean-architecture)
 
 #HSLIDE
 
