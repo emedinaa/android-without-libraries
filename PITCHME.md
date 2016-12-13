@@ -626,15 +626,15 @@ Clean Architecture
 
 #HSLIDE
 
-References 
+Referencias 
 
 - Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
 
-- Clean Architecture
+- MVP & Clean Architecture [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 
-- Android MVP
+- Uncle Bob Clean Architecture [https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-- Helpers
+- Helpers [http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html](http://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html)
 
 #HSLIDE
 
