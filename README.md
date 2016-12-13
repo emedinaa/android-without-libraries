@@ -1,5 +1,7 @@
 # android-without-libraries
-How to live without libraries and not to die in the attempt.
+"Cómo vivir sin librerías y no morir en el intento"
+
+Temas a tratar :
 
 - Android Support.
 
@@ -15,11 +17,11 @@ How to live without libraries and not to die in the attempt.
 
 - Dependency Injections.
 
-## Section 1
-
-<<[PITCHME.md]
-
-
-## Section 2
+Presentación :
 
 [https://gitpitch.com/emedinaa/android-without-libraries](https://gitpitch.com/emedinaa/android-without-libraries)
+
+Ejemplo :
+
+[https://github.com/emedinaa/android-without-libraries/tree/dev](https://github.com/emedinaa/android-without-libraries/tree/dev)
+
