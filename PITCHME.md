@@ -585,15 +585,16 @@ height="500">
   
    ![LOGO](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/renderers_library.png)
    
-   Pedro Vicente Gómez Sánchez
-   
 #VSLIDE   
+  
+  Pedro Vicente Gómez Sánchez
 
    ```java
    
-          dependencies{
+          dependencies
+          {
              compile 'com.github.pedrovgs:renderers:3.2.0'
-         }     
+          }     
    ```
  
 #VSLIDE   
