@@ -114,21 +114,18 @@ ImageLoaderHelper
                return imageLoader;
            }
 
-       public class ImageLoaderHelper {
-
-           private ImageLoader factory()
-           {
-               switch (type)
-               {
-                   case PICASSO:
-                      return new PicassoLoader();
-                   case GLIDE:
-                       return new GlideLoader();
-                   default:
-                       return new GlideLoader();
-               }
-           }
-       }
+     private ImageLoader factory()
+     {
+         switch (type)
+         {
+             case PICASSO:
+                return new PicassoLoader();
+             case GLIDE:
+                 return new GlideLoader();
+             default:
+                 return new GlideLoader();
+         }
+     }
     }
 ```
 
