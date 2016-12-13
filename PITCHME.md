@@ -446,8 +446,7 @@ Output
 
 #HSLIDE
 Clean Architecture & Android MVP
-![clean layouts](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png
-.png)
+![clean layouts](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png)
 
 #VSLIDE
 ![regla dependencia](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png)
