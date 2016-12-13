@@ -320,14 +320,14 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
   SharedPreferencesHelper
   ```Java
   
-     public interface SharedPreferencesHelper{
-     
+  public interface SharedPreferencesHelper{
          void saveEmail (String email);
          String email();
          void saveUser(User user);
          User user();
          void clear();
-     }
+  }
+  
   ```
 #HSLIDE
 DefaultSharedPreferencesHelper
