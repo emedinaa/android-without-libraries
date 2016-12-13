@@ -41,39 +41,45 @@
 
 Picaso y Glide son muy similares , Glide y Fresco cuentan con algunas funcionalidades adicionales.
 
-```
-   Picasso.with(imageView.getContext())
-                .load(url)
-                .into(imageView);
+```Java
+
+      Picasso.with(imageView.getContext())
+                   .load(url)
+                   .into(imageView);
 ```
 
-```
-   Glide.with(imageView.getContext())
-                .load(url)
-                .into(imageView);
+```Java
+
+      Glide.with(imageView.getContext())
+                   .load(url)
+                   .into(imageView);
 ```
 
 #HSLIDE
 Si es con fresco, debemos usar un customView
-```
-   <com.facebook.drawee.view.SimpleDraweeView
-       android:id="@+id/sdvImage"
-       android:layout_width="130dp"
-       android:layout_height="130dp"
-       fresco:placeholderImage="@drawable/myPlaceholderImage" />
+```Java
+
+      <com.facebook.drawee.view.SimpleDraweeView
+          android:id="@+id/sdvImage"
+          android:layout_width="130dp"
+          android:layout_height="130dp"
+          fresco:placeholderImage="@drawable/myPlaceholderImage" />
 ```
 
-```
-   Fresco.initialize(context);
-   Uri imageUri = Uri.parse("https://i.imgur.com/tGbaZCY.jpg");
-   SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
-   draweeView.setImageURI(imageUri);
+```Java
+
+      Fresco.initialize(context);
+      Uri imageUri = Uri.parse("https://i.imgur.com/tGbaZCY.jpg");
+      SimpleDraweeView draweeView = 
+                  (SimpleDraweeView) findViewById(R.id.sdvImage);
+      draweeView.setImageURI(imageUri);
 ```
 
 #HSLIDE
 La idea es no depender de una libreria en particular , no tener código suelto en nuestro proyecto y en su momento poder escoger con cual trabajar o no.
 
-```
+```Java
+
       public interface ImageLoader {
 
           void load(String url, ImageView imageView);
@@ -85,36 +91,37 @@ La idea es no depender de una libreria en particular , no tener código suelto e
 #HSLIDE
 ImageLoaderHelper
 
-```
- public class ImageLoaderHelper {
-     public static final int GLIDE=1;
-     public static final int PICASSO=2;
+```Java 
 
-     private int type=GLIDE;
-     private ImageLoader imageLoader;
+       public class ImageLoaderHelper {
+           public static final int GLIDE=1;
+           public static final int PICASSO=2;
 
-     public ImageLoaderHelper(int type) {
-         this.type = type;
-         imageLoader= factory();
-     }
+           private int type=GLIDE;
+           private ImageLoader imageLoader;
 
-     public ImageLoader getLoader() {
-         return imageLoader;
-     }
+           public ImageLoaderHelper(int type) {
+               this.type = type;
+               imageLoader= factory();
+           }
 
-     private ImageLoader factory()
-     {
-         switch (type)
-         {
-             case PICASSO:
-                return new PicassoLoader();
-             case GLIDE:
-                 return new GlideLoader();
-             default:
-                 return new GlideLoader();
-         }
-     }
- }
+           public ImageLoader getLoader() {
+               return imageLoader;
+           }
+
+           private ImageLoader factory()
+           {
+               switch (type)
+               {
+                   case PICASSO:
+                      return new PicassoLoader();
+                   case GLIDE:
+                       return new GlideLoader();
+                   default:
+                       return new GlideLoader();
+               }
+           }
+       }
 ```
 #HSLIDE
 Si es Picasso , creamos la clase  "PicassoLoader"
