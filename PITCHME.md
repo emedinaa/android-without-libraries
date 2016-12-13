@@ -6,7 +6,39 @@
 ###### @eduardomedina
    
 ###### https://github.com/emedinaa
- 
+#HSLIDE
+[https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png">
+
+#VSLIDE
+```Java
+   dependencies {
+     def presentationDependencies = rootProject.ext.presentationDependencies
+     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+     def developmentDependencies = rootProject.ext.developmentDependencies
+
+     compile project(':domain')
+     compile project(':data')
+
+     apt presentationDependencies.daggerCompiler
+     compile presentationDependencies.dagger
+     compile presentationDependencies.butterKnife
+     compile presentationDependencies.recyclerView
+     compile presentationDependencies.rxJava
+     compile presentationDependencies.rxAndroid
+     provided presentationDependencies.javaxAnnotation
+
+     androidTestCompile presentationTestDependencies.mockito
+     androidTestCompile presentationTestDependencies.dexmaker
+     androidTestCompile presentationTestDependencies.dexmakerMockito
+     androidTestCompile presentationTestDependencies.espresso
+     androidTestCompile presentationTestDependencies.testingSupportLib
+
+     //Development
+     compile developmentDependencies.leakCanary
+   }
+```
+
 #HSLIDE
 [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 <img src="https://raw.githubusercontent.com/wiki/googlesamples/android-architecture/images/aab-logo.png" height="471">
@@ -555,21 +587,24 @@ Output
 
 #HSLIDE
 Android MVP
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="640">
+
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="540">
 
 #HSLIDE
 Clean Architecture
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="640">
+
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="620">
 
 #VSLIDE
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="640">
+
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
 
 #HSLIDE
 ##### Inversión de Dependencias e Inyección de Dependencias
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
 
 #HSLIDE
-<!-- .slide: data-autoslide="10000"-->
+<!-- .slide: data-autoslide="20000"-->
 
 #HSLIDE
 
@@ -586,6 +621,7 @@ References
 #HSLIDE
 
 **Write Code, Read Code , learn from experiences ...**
+
 by Fernando Cejas
 
 #HSLIDE
