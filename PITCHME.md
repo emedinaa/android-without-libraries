@@ -555,7 +555,7 @@ Output
 
 #HSLIDE
 Android MVP
- <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="640">
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="520">
 
 #HSLIDE
 Clean Architecture
