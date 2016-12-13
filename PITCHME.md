@@ -136,30 +136,30 @@ ImageLoaderHelper
 Si es Picasso , creamos la clase  "PicassoLoader"
 ```Java
 
-   public class PicassoLoader implements ImageLoader {
+public class PicassoLoader implements ImageLoader {
 
-       @Override
-       public void load(String url, ImageView imageView) {
-           Picasso.with(imageView.getContext())
-                   .load(url)
-                   .into(imageView);
-       }
+    @Override
+    public void load(String url, ImageView imageView) {
+        Picasso.with(imageView.getContext())
+                .load(url)
+                .into(imageView);
+    }
 
-       @Override
-       public void loadCircle(String url, ImageView imageView) {
-           Picasso.with(imageView.getContext())
-                   .load(url)
-                   .transform(new CircleTransform())
-                   .into(imageView);
-       }
+    @Override
+    public void loadCircle(String url, ImageView imageView) {
+        Picasso.with(imageView.getContext())
+                .load(url)
+                .transform(new CircleTransform())
+                .into(imageView);
+    }
 
-       @Override
-       public void loadLocal(String path, ImageView imageView) {
-           Picasso.with(imageView.getContext())
-                   .load(new File(path))
-                   .into(imageView);
-       }
-   }
+    @Override
+    public void loadLocal(String path, ImageView imageView) {
+        Picasso.with(imageView.getContext())
+                .load(new File(path))
+                .into(imageView);
+    }
+}
 ```
 #VSLIDE
 Si es Glide , creamos la clase  "GlideLoader"
@@ -170,21 +170,24 @@ public class GlideLoader implements ImageLoader{
     @Override
     public void load(String url, ImageView imageView)
     {
-        Glide.with(imageView.getContext()).load(url).into(imageView);
+        Glide.with(imageView.getContext())
+        .load(url).into(imageView);
     }
     
     @Override
     public void loadCircle(String url, ImageView imageView){
         Glide.with(imageView.getContext()).load(url)
              .bitmapTransform(
-              new CropCircleTransformation(imageView.getContext()))
+              new CropCircleTransformation(
+                                    imageView.getContext()))
              .into(imageView);
     }
 
     @Override
     public void loadLocal(String path, ImageView imageView){
         Glide.with(imageView.getContext())
-                     .load(new File(path)).into(imageView);
+                     .load(new File(path))
+                     .into(imageView);
     }
 ```
 
@@ -216,45 +219,45 @@ Custom View
 
 ```Java
 
-   public class MTextView extends AppCompatTextView {
-       public MTextView(Context context) {
-           super(context);
-           app(context,null);
-       }
+public class MTextView extends AppCompatTextView {
+    public MTextView(Context context) {
+        super(context);
+        app(context,null);
+    }
 
-       public MTextView(Context context, AttributeSet attrs) {
-           super(context, attrs);
-           app(context,attrs);
-       }
+    public MTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        app(context,attrs);
+    }
 
-       public MTextView(Context context, AttributeSet attrs, 
-           int defStyleAttr) {
-           super(context, attrs, defStyleAttr);
-           app(context,attrs);
-       }
+    public MTextView(Context context, AttributeSet attrs, 
+        int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        app(context,attrs);
+    }
  
 ```
 #VSLIDE
 ```Java
 
-      private void app(Context context, Object object) {
-           if(!isInEditMode()) loadFont(context);
-       }
+   private void app(Context context, Object object) {
+        if(!isInEditMode()) loadFont(context);
+    }
 
-       protected void loadFont(Context context){
-           String pathFont= "fonts/helveticaneuelight.ttf";
-           if(getTag()==null){
-               pathFont= "fonts/helveticaneuelight.ttf";
-           }else if(getTag().equals("1")){
-               pathFont= "fonts/helveticaneuelight.ttf";
-           }else if(getTag().equals("2")){
-               pathFont= "fonts/gotham-rounded-bold.otf";
-           }
-           Typeface type = Typeface.createFromAsset(
-               context.getAssets(),pathFont);
-           setTypeface(type);
-       }
-   }
+    protected void loadFont(Context context){
+        String pathFont= "fonts/helveticaneuelight.ttf";
+        if(getTag()==null){
+            pathFont= "fonts/helveticaneuelight.ttf";
+        }else if(getTag().equals("1")){
+            pathFont= "fonts/helveticaneuelight.ttf";
+        }else if(getTag().equals("2")){
+            pathFont= "fonts/gotham-rounded-bold.otf";
+        }
+        Typeface type = Typeface.createFromAsset(
+            context.getAssets(),pathFont);
+        setTypeface(type);
+    }
+}
    
 ```
 #HSLIDE
