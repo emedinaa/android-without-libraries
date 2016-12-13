@@ -38,7 +38,6 @@ public class EventRenderer extends Renderer<Meetup> {
 
     @Override
     protected void hookListeners(View rootView) {
-
     }
 
     @Override
@@ -52,7 +51,6 @@ public class EventRenderer extends Renderer<Meetup> {
     public void render() {
         Meetup meetup = getContent();
         Log.v(TAG, "meetup "+meetup);
-        renderThumbnail(meetup);
         renderTitle(meetup);
     }
 
@@ -77,6 +75,5 @@ public class EventRenderer extends Renderer<Meetup> {
         return desc;
     }
 
-    private void renderThumbnail(Meetup meetup) {
-    }
+
 }
