@@ -446,10 +446,10 @@ Output
 
 #HSLIDE
 Clean Architecture & Android MVP
-![clean layouts](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png)
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="480">
 
 #VSLIDE
-![regla dependencia](https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png)
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="480">
 
 #HSLIDE
 Inversión de control e Inyección de Dependencias
