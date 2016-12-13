@@ -57,7 +57,7 @@ Picaso y Glide son muy similares , Glide y Fresco cuentan con algunas funcionali
 
 #HSLIDE
 Si es con fresco, debemos usar un customView
-```Java
+```Xml
 
       <com.facebook.drawee.view.SimpleDraweeView
           android:id="@+id/sdvImage"
@@ -123,6 +123,27 @@ ImageLoaderHelper
            }
        }
 ```
+#VSLIDE
+
+```Java 
+
+       public class ImageLoaderHelper {
+
+           private ImageLoader factory()
+           {
+               switch (type)
+               {
+                   case PICASSO:
+                      return new PicassoLoader();
+                   case GLIDE:
+                       return new GlideLoader();
+                   default:
+                       return new GlideLoader();
+               }
+           }
+       }
+```
+
 #HSLIDE
 Si es Picasso , creamos la clase  "PicassoLoader"
 ```
@@ -151,6 +172,32 @@ Si es Picasso , creamos la clase  "PicassoLoader"
        }
    }
 ```
+#VSLIDE
+Si es Glide , creamos la clase  "GlideLoader"
+```Java
+public class GlideLoader implements ImageLoader{
+
+    @Override
+    public void load(String url, ImageView imageView)
+    {
+        Glide.with(imageView.getContext()).load(url).into(imageView);
+    }
+    
+    @Override
+    public void loadCircle(String url, ImageView imageView) {
+        Glide.with(imageView.getContext()).load(url)
+                .bitmapTransform(
+                        new CropCircleTransformation(imageView.getContext()))
+                .into(imageView);
+    }
+
+    @Override
+    public void loadLocal(String path, ImageView imageView) {
+        Glide.with(imageView.getContext())
+                     .load(new File(path)).into(imageView);
+    }
+```
+
 #HSLIDE
 Bueno... y como podemos usar este helper ?
 ```
