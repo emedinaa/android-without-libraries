@@ -79,6 +79,18 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
 androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
 ```
+#HSLIDE
+Meetup App
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp0.png">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp1.png">
+
+#VSLIDE
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png">
+
+#VSLIDE
+[https://www.meetup.com/es-ES/meetup_api/](https://www.meetup.com/es-ES/meetup_api/)
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/meetup_api.png">
 
 #HSLIDE
 
