@@ -28,13 +28,12 @@ height="480">
 
 #HSLIDE
 
-- ¿Qué librerias necesito para crear una app?
-- Crear Helpers
-- No depender de una sola librería
-- ¿Cómo integrar una librería a nuestro proyecto?
-- Librerías que realmente sirven
-- Arquitectura : Clean y MVP
-- Comunicación entre componentes
+- ¿Qué librerías necesito para crear una app?
+- ¿Cómo comunico los componentes de mi app?
+- ¿Cómo manejo las imágenes?
+- ¿Con que librería consumo los servicios Resful?
+- ¿Cómo evito el cruce de dependencias en el proyecto?
+- ¿Uso alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
 
 #HSLIDE
 ###### [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
