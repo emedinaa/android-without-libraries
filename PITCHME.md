@@ -452,9 +452,8 @@ Clean Architecture & Android MVP
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="640">
 
 #HSLIDE
-Inversión de control e Inyección de Dependencias
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png"
-height="640">
+Inversión de Dependencias e Inyección de Dependencias
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="640">
 
 #HSLIDE
 <!-- .slide: data-autoslide="10000"-->
