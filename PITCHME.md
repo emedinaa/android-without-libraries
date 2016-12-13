@@ -652,7 +652,6 @@ Clean Architecture
 ```
 
 #HSLIDE
-
 Referencias 
 
 - Dagger2 [link](https://docs.google.com/presentation/d/1fby5VeGU9CN8zjw4lAb2QPPsKRxx6mSwCe9q7ECNSJQ/pub?start=false&loop=false&delayms=3000#slide=id.p)
