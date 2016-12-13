@@ -175,6 +175,13 @@ height="480">
    //RENDERERS
    compile 'com.github.pedrovgs:renderers:3.2.0'
    
+   //RxJava & RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    
+    compile 'io.reactivex:rxjava:1.1.6'
+    
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+   
 ```
 
 #HSLIDE
