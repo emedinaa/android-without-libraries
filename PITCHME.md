@@ -702,7 +702,8 @@ Clean Architecture
 
 #HSLIDE
   
-  - ##### DEMO https://github.com/emedinaa/android-without-libraries/tree/dev
+  - ##### DEMO 
+  - ###### https://github.com/emedinaa/android-without-libraries/tree/dev
   
 #HSLIDE
   
