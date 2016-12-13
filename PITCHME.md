@@ -555,13 +555,16 @@ Output
 
 #HSLIDE
 Android MVP
+
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="540">
 
 #HSLIDE
 Clean Architecture
+
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="620">
 
 #VSLIDE
+
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
 
 #HSLIDE
@@ -569,7 +572,7 @@ Clean Architecture
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
 
 #HSLIDE
-<!-- .slide: data-autoslide="10000"-->
+<!-- .slide: data-autoslide="20000"-->
 
 #HSLIDE
 
