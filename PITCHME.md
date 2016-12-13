@@ -8,7 +8,7 @@
 ###### https://github.com/emedinaa
 #HSLIDE
 ###### [https://github.com/android10/Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)
-<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png" height="420">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/cleanandroid10.png" height="440">
 
 #VSLIDE
 ```Java
