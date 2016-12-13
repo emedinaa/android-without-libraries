@@ -107,7 +107,8 @@ dependencies {
     // Espresso UI Testing
     androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
-androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    
 ```
 
 #HSLIDE
@@ -192,12 +193,17 @@ height="500">
     
    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
    
-   //transforms https://github.com/wasabeef/picasso-transformations
+   //Transforms 
+   //https://github.com/wasabeef/picasso-transformations
    
    compile 'jp.wasabeef:picasso-transformations:2.1.0'
    
    // If you want to use the GPU Filters
    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+   
+   //Fonts
+   //https://github.com/chrisjenx/Calligraphy
+   compile 'uk.co.chrisjenx:calligraphy:2.2.0'
    
 ```
 
