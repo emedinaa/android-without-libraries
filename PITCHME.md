@@ -232,7 +232,12 @@ Custom View
            super(context, attrs, defStyleAttr);
            app(context,attrs);
        }
-       private void app(Context context, Object object) {
+ 
+```
+#VSLIDE
+```Java
+
+      private void app(Context context, Object object) {
            if(!isInEditMode()) loadFont(context);
        }
 
@@ -250,8 +255,8 @@ Custom View
            setTypeface(type);
        }
    }
+   
 ```
-
 #HSLIDE
  ```Xml
  
@@ -312,23 +317,24 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
   - ##### Storage Options
   
 #HSLIDE
-  PreferencesHelper
+  SharedPreferencesHelper
   ```Java
   
-    public interface SharedPreferencesHelper{
+        public interface SharedPreferencesHelper{
+        
+               void saveEmail (String email);
+               String email();
 
-      void saveEmail (String email);
-      String email();
+               void saveUser(User user);
+               User user();
 
-      void saveUser(User user);
-      User user();
-
-      void clear();
-  }
+               void clear();
+        }
   ```
 #HSLIDE
 DefaultSharedPreferencesHelper
-```
+```Java
+
       private  final String MY_SHARED_PREFERENCES = "com.emedinaa.sharedpreferences";
       private  final String KEY_EMAIL = MY_SHARED_PREFERENCES+".session.email";
       private  final String KEY_USER = MY_SHARED_PREFERENCES+".session.user";
