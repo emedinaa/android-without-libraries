@@ -104,28 +104,15 @@ ImageLoaderHelper
                this.type = type;
                imageLoader= factory();
            }
-
-           public ImageLoader getLoader() {
-               return imageLoader;
-           }
-
-           private ImageLoader factory()
-           {
-               switch (type)
-               {
-                   case PICASSO:
-                      return new PicassoLoader();
-                   case GLIDE:
-                       return new GlideLoader();
-                   default:
-                       return new GlideLoader();
-               }
-           }
-       }
+       
 ```
 #VSLIDE
 
 ```Java 
+
+      public ImageLoader getLoader() {
+               return imageLoader;
+           }
 
        public class ImageLoaderHelper {
 
@@ -142,11 +129,13 @@ ImageLoaderHelper
                }
            }
        }
+    }
 ```
 
 #HSLIDE
 Si es Picasso , creamos la clase  "PicassoLoader"
-```
+```Java
+
    public class PicassoLoader implements ImageLoader {
 
        @Override
@@ -175,6 +164,7 @@ Si es Picasso , creamos la clase  "PicassoLoader"
 #VSLIDE
 Si es Glide , creamos la clase  "GlideLoader"
 ```Java
+
 public class GlideLoader implements ImageLoader{
 
     @Override
@@ -184,15 +174,15 @@ public class GlideLoader implements ImageLoader{
     }
     
     @Override
-    public void loadCircle(String url, ImageView imageView) {
+    public void loadCircle(String url, ImageView imageView){
         Glide.with(imageView.getContext()).load(url)
-                .bitmapTransform(
-                        new CropCircleTransformation(imageView.getContext()))
-                .into(imageView);
+             .bitmapTransform(
+              new CropCircleTransformation(imageView.getContext()))
+             .into(imageView);
     }
 
     @Override
-    public void loadLocal(String path, ImageView imageView) {
+    public void loadLocal(String path, ImageView imageView){
         Glide.with(imageView.getContext())
                      .load(new File(path)).into(imageView);
     }
@@ -200,10 +190,11 @@ public class GlideLoader implements ImageLoader{
 
 #HSLIDE
 Bueno... y como podemos usar este helper ?
-```
+```Java
+
    private final ImageLoader imageLoader;
 
-      public MemberRenderer(ImageLoader imageLoader) {
+      public MemberRenderer(ImageLoader imageLoader){
           this.imageLoader = imageLoader;
   }
 ```
@@ -223,7 +214,8 @@ Bueno... y como podemos usar este helper ?
 #HSLIDE
 Custom View
 
-```
+```Java
+
    public class MTextView extends AppCompatTextView {
        public MTextView(Context context) {
            super(context);
@@ -235,7 +227,8 @@ Custom View
            app(context,attrs);
        }
 
-       public MTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+       public MTextView(Context context, AttributeSet attrs, 
+           int defStyleAttr) {
            super(context, attrs, defStyleAttr);
            app(context,attrs);
        }
@@ -252,16 +245,19 @@ Custom View
            }else if(getTag().equals("2")){
                pathFont= "fonts/gotham-rounded-bold.otf";
            }
-           Typeface type = Typeface.createFromAsset(context.getAssets(),pathFont);
+           Typeface type = Typeface.createFromAsset(
+               context.getAssets(),pathFont);
            setTypeface(type);
        }
    }
 ```
 
 #HSLIDE
- ```
+ ```Xml
+ 
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -317,8 +313,9 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
   
 #HSLIDE
   PreferencesHelper
-  ```java
-    public interface SharedPreferencesHelper {
+  ```Java
+  
+    public interface SharedPreferencesHelper{
 
       void saveEmail (String email);
       String email();
@@ -339,7 +336,8 @@ DefaultSharedPreferencesHelper
       private final SharedPreferences sharedPreferences;
       private final GsonHelper gsonHelper;
 
-      public DefaultSharedPreferencesHelper(GsonHelper gsonHelper,SharedPreferences sharedPreferences) {
+      public DefaultSharedPreferencesHelper(GsonHelper gsonHelper,
+          SharedPreferences sharedPreferences) {
           this.gsonHelper= gsonHelper;
           this.sharedPreferences = sharedPreferences;
       }
@@ -357,35 +355,39 @@ DefaultSharedPreferencesHelper
           return email;
       }
 
-      @Override
-      public void saveUser(User user) {
-          SharedPreferences.Editor editor = editor();
-          editor.putString(KEY_USER, gsonHelper.objectToJSON(user).toString());
-          editor.apply();
-      }
-
-      @Override
-      public User user() {
-          String  userStr= sharedPreferences.getString(KEY_USER,"");
-          User user= gsonHelper.jsonToObject(userStr,User.class);
-          return user;
-      }
-
-      @Override
-      public void clear() {
-          SharedPreferences.Editor editor = editor();
-          editor.clear();
-          editor.apply();
-      }
-
-      private  SharedPreferences.Editor editor() {
-          return sharedPreferences.edit();
-      }
-  }
-
 ```
-#HSLIDE
+#VSLIDE
+```Java
+
+         @Override
+         public void saveUser(User user) {
+             SharedPreferences.Editor editor = editor();
+             editor.putString(KEY_USER, gsonHelper.objectToJSON(user).toString());
+             editor.apply();
+         }
+
+         @Override
+         public User user() {
+             String  userStr= sharedPreferences.getString(KEY_USER,"");
+             User user= gsonHelper.jsonToObject(userStr,User.class);
+             return user;
+         }
+
+         @Override
+         public void clear() {
+             SharedPreferences.Editor editor = editor();
+             editor.clear();
+             editor.apply();
+         }
+
+         private  SharedPreferences.Editor editor() {
+             return sharedPreferences.edit();
+         }
+     }
 ```
+#VSLIDE
+```Java
+
  public class GsonHelper {
 
       public  JSONObject objectToJSON(Object obj)
@@ -412,12 +414,17 @@ DefaultSharedPreferencesHelper
 #HSLIDE
 Guardar y obtener el Email
 
-```
+```Java
+
   private void preferencesEmail() {
-        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences= getSharedPreferences
+        (MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        
         GsonHelper gsonHelper= new GsonHelper();
 
-        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper
+        (gsonHelper,sharedPreferences);
+        
         sharedPreferencesHelper.saveEmail("emedinaa@gmail.com");
         String email=sharedPreferencesHelper.email();
 
@@ -425,7 +432,8 @@ Guardar y obtener el Email
     }
 ```
 Output
-```
+```Java
+
  V/MainActivity: email emedinaa@gmail.com
 ```
 
