@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.emedinaa.meetupapp.R;
 import com.emedinaa.meetupapp.common.media.ImageLoader;
+import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
 import com.emedinaa.meetupapp.domain.entity.Member;
 import com.emedinaa.meetupapp.domain.entity.Photo;
 import com.pedrogomez.renderers.Renderer;
@@ -19,10 +20,10 @@ public class MemberRenderer extends Renderer<Member> {
 
     private ImageView iviMember;
     private TextView tviName,tviType;
-    private final ImageLoader imageLoader;
+    private final ImageLoaderHelper imageLoaderHelper;
 
-    public MemberRenderer(ImageLoader imageLoader) {
-        this.imageLoader = imageLoader;
+    public MemberRenderer(ImageLoaderHelper imageLoaderHelper) {
+        this.imageLoaderHelper = imageLoaderHelper;
     }
 
     @Override
@@ -68,6 +69,6 @@ public class MemberRenderer extends Renderer<Member> {
     private void renderThumbnail(Member member) {
         Photo photo= member.getPhoto();
         String url= photo.getThumb_link();
-        imageLoader.loadCircle(url,iviMember);
+        imageLoaderHelper.getLoader().loadCircle(url,iviMember);
     }
 }

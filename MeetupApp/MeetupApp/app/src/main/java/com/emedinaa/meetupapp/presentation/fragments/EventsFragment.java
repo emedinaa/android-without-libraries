@@ -1,7 +1,6 @@
 package com.emedinaa.meetupapp.presentation.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,8 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.emedinaa.meetupapp.R;
+import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
+import com.emedinaa.meetupapp.data.mapper.EventMapper;
+import com.emedinaa.meetupapp.data.rest.EventsRestInteractor;
 import com.emedinaa.meetupapp.domain.entity.Meetup;
-import com.emedinaa.meetupapp.domain.entity.Member;
+import com.emedinaa.meetupapp.presentation.adapter.EventRenderer;
+import com.emedinaa.meetupapp.presentation.presenter.EventPresenter;
+import com.emedinaa.meetupapp.presentation.view.EventView;
+import com.pedrogomez.renderers.RVRendererAdapter;
+import com.pedrogomez.renderers.Renderer;
+import com.pedrogomez.renderers.RendererBuilder;
 
 import java.util.List;
 
@@ -25,11 +32,12 @@ import java.util.List;
  * Use the {@link EventsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventsFragment extends Fragment {
+public class EventsFragment extends Fragment implements EventView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private final String GROUP="Android-Dev-Peru";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -38,6 +46,8 @@ public class EventsFragment extends Fragment {
     private OnFragmentListener mListener;
     private RecyclerView rviEvents;
     private List<Meetup> meetups;
+    private EventPresenter eventPresenter;
+    private String eventType=null;
 
     public EventsFragment() {
         // Required empty public constructor
@@ -67,6 +77,8 @@ public class EventsFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            eventType= getArguments().getString("EVENTS");
         }
     }
 
@@ -87,6 +99,24 @@ public class EventsFragment extends Fragment {
         // use a linear layout manager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rviEvents.setLayoutManager(mLayoutManager);
+
+        EventMapper eventMapper= new EventMapper();
+        eventPresenter= new EventPresenter(new EventsRestInteractor(eventMapper));
+        eventPresenter.attachedView(this);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(eventType!=null){
+            if(eventType.equals("upcoming")){
+                eventPresenter.getUpcomingEvent(GROUP);
+            }else if(eventType.equals("past")){
+                eventPresenter.getPastEvents(GROUP);
+            }
+        }
+
     }
 
     @Override
@@ -106,4 +136,33 @@ public class EventsFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void renderMeetups(List<Meetup> meetups) {
+        this.meetups= meetups;
+
+        Renderer<Meetup> renderer = new EventRenderer(new ImageLoaderHelper(ImageLoaderHelper.PICASSO));
+        RendererBuilder<Meetup> rendererBuilder = new RendererBuilder<Meetup>(renderer);
+        RVRendererAdapter<Meetup> rendererAdapter= new RVRendererAdapter<Meetup>(rendererBuilder,this.meetups);
+        rviEvents.setAdapter(rendererAdapter);
+    }
+
+    @Override
+    public void emptyMeetups() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
 }

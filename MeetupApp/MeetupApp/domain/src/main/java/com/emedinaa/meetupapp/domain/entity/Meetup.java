@@ -97,4 +97,20 @@ public class Meetup implements Serializable {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    @Override
+    public String toString() {
+        return "Meetup{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", time='" + time + '\'' +
+                ", waitlist_count=" + waitlist_count +
+                ", yes_rsvp_coun=" + yes_rsvp_coun +
+                ", link='" + link + '\'' +
+                ", description='" + description + '\'' +
+                ", visibility='" + visibility + '\'' +
+                ", group=" + group +
+                '}';
+    }
 }

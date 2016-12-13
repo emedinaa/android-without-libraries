@@ -1,5 +1,6 @@
 package com.emedinaa.meetupapp;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,17 +8,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 
-import com.emedinaa.meetupapp.data.mapper.MemberMapper;
-import com.emedinaa.meetupapp.data.rest.MembersRestInteractor;
-import com.emedinaa.meetupapp.data.rest.EventsRestInteractor;
-import com.emedinaa.meetupapp.domain.callback.StorageCallback;
-import com.emedinaa.meetupapp.domain.interactors.EventsInteractor;
-import com.emedinaa.meetupapp.domain.interactors.MembersInteractor;
 import com.emedinaa.meetupapp.presentation.fragments.EventsFragment;
 import com.emedinaa.meetupapp.presentation.fragments.MembersFragment;
 import com.emedinaa.meetupapp.presentation.fragments.OnFragmentListener;
@@ -65,14 +58,17 @@ public class MainActivity extends AppCompatActivity implements OnFragmentListene
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
+        Bundle bundle= new Bundle();
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass = null;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
+                bundle.putString("EVENTS","upcoming");
                 fragmentClass = EventsFragment.class;
                 break;
             case R.id.nav_second_fragment:
+                bundle.putString("EVENTS","past");
                 fragmentClass = EventsFragment.class;
                 break;
             case R.id.nav_third_fragment:
@@ -84,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentListene
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(bundle);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -139,28 +136,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentListene
 
     }
 
-    private void testMembers(String group_name) {
-        MemberMapper memberMapper= new MemberMapper();
-        MembersInteractor membersInteractor= new MembersRestInteractor(memberMapper);
-        membersInteractor.membersByGroup(group_name,restCallback);
-    }
-
-    private void testService() {
-        EventsInteractor eventsInteractor= new EventsRestInteractor();
-        eventsInteractor.pastEvents("Android-Dev-Peru",restCallback);
-    }
-
-    private StorageCallback restCallback= new StorageCallback() {
-        @Override
-        public void onSuccess(Object object) {
-            Log.v(TAG, "onSuccess "+object);
-        }
-
-        @Override
-        public void onFailure(Exception e) {
-            Log.v(TAG, "onFailure "+e.getMessage());
-        }
-    };
 
     /**
      * References

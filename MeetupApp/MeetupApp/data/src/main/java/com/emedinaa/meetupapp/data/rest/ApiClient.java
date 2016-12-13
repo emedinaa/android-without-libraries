@@ -1,5 +1,6 @@
 package com.emedinaa.meetupapp.data.rest;
 
+import com.emedinaa.meetupapp.data.rest.entity.EventList;
 import com.emedinaa.meetupapp.data.rest.entity.MemberResponse;
 
 import java.util.Map;
@@ -56,6 +57,9 @@ public class ApiClient {
 
         @GET("/2/members")
         Call<MemberResponse> membersByGroup(@QueryMap Map<String, String> options);
+
+        @GET("/2/events")
+        Call<EventList> eventsByGroup(@QueryMap Map<String, String> options);
         //page
 
         @GET("/{group_urlname}/events")
