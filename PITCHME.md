@@ -199,6 +199,12 @@ height="500">
  
  - ##### ImageLoaderHelper
  
+#VSLIDE
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp2.png"
+height="480">
+<img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/screenshotApp3.png"
+height="480">
+ 
 #HSLIDE
 
  Creando un ImageLoader 
@@ -491,6 +497,7 @@ Es recomendable cargar en local,las librerías a nuestro proyecto  y poder reali
   
   
 #HSLIDE
+
   SharedPreferencesHelper
   ```Java
   
@@ -592,7 +599,9 @@ DefaultSharedPreferencesHelper
       }
   }
 ```
+
 #HSLIDE
+
 Guardar y obtener el Email
 
 ```Java
@@ -617,6 +626,7 @@ Output
 
  V/MainActivity: email emedinaa@gmail.com
 ```
+
 #HSLIDE
   
   - ##### Arquitectura de la App
@@ -635,11 +645,12 @@ Clean Architecture
 
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_rule.png" height="620">
  
- #HSLIDE
+#HSLIDE
   
   - ##### S. O. L. I. D.
   
 #HSLIDE
+
 ##### Inversión de Dependencias e Inyección de Dependencias
 <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/dependency_inject.png" height="580">
 
@@ -665,11 +676,12 @@ Clean Architecture
     }
     
 ```
- #HSLIDE
+
+#HSLIDE
   
   - ##### DEMO https://github.com/emedinaa/android-without-libraries/tree/dev
   
- #HSLIDE
+#HSLIDE
   
   - ##### Referencias
   
