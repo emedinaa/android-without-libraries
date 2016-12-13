@@ -514,7 +514,11 @@ Output
 ```
 
 #HSLIDE
-Clean Architecture & Android MVP
+Android MVP
+ <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/mvp.png" height="640">
+
+#HSLIDE
+Clean Architecture
  <img src="https://raw.githubusercontent.com/emedinaa/android-without-libraries/master/images/clean_layouts.png" height="640">
 
 #VSLIDE
