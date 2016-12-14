@@ -3,19 +3,19 @@
 
 Temas a tratar :
 
-- Android Support.
+- ¿Qué librerías necesito para crear una app que se integre con el API de Meetup?
 
-- Multimedia.
+- ¿Cómo comunico los componentes de mi app?
 
-- Communication between components.
+- ¿Cómo manejo las imágenes?
 
-- Storage Options.
+- ¿Con que librería consumo los servicios Resful?
 
-- MVP Patterns and Clean Architecture.
+- ¿Cómo evito el cruce de dependencias?
 
-- Background Tasks.
+- ¿Usar o no alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
 
-- Dependency Injections.
+- ¿Estoy aplicando los principios S.O.L.I.D ? , Inversión de Dependencias, Inyección de dependencias 
 
 Presentación :
 
