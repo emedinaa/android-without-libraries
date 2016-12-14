@@ -5,7 +5,7 @@ Temas a tratar :
 
 - ¿Qué librerías necesito para crear una app que se integre con el API de Meetup?
 
-- ¿Cómo comunico los componentes de mi app?
+- ¿Cómo comunicar los componentes de mi app?
 
 - ¿Cómo manejo las imágenes?
 
