@@ -13,7 +13,7 @@ Temas a tratar :
 
 - ¿Cómo evito el cruce de dependencias?
 
-- ¿Usar o no alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean
+- ¿Usar o no alguna arquitectura?, ¿Qué patrón de architectura? MVP, Clean Architecture
 
 - ¿Estoy aplicando los principios S.O.L.I.D ? , Inversión de Dependencias, Inyección de dependencias 
 
