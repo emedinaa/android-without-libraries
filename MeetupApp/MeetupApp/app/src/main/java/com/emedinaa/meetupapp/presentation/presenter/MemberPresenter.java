@@ -35,7 +35,12 @@ public class MemberPresenter extends BasePresenter<MemberView> {
     private StorageCallback restCallback= new StorageCallback() {
         @Override
         public void onSuccess(Object object) {
-            view.renderMembers((List<Member>)(object));
+            List<Member> members= ((List<Member>)(object));
+            if(members==null || members.size()==0){
+                view.emptyMembers();
+            }else {
+                view.renderMembers(members);
+            }
             view.hideLoading();
         }
 

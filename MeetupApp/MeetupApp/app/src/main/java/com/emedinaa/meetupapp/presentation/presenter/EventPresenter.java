@@ -31,7 +31,12 @@ public class EventPresenter extends BasePresenter<EventView> {
     private StorageCallback restCallback= new StorageCallback() {
         @Override
         public void onSuccess(Object object) {
-            view.renderMeetups((List<Meetup>)(object));
+            List<Meetup> meetups= (List<Meetup>)(object);
+            if(meetups==null || meetups.size()==0){
+                view.emptyMeetups();
+            }else {
+                view.renderMeetups(meetups);
+            }
             view.hideLoading();
         }
 
