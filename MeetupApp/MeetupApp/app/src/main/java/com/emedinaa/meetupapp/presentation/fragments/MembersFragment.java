@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import com.emedinaa.meetupapp.common.ui.MarginDecoration;
 import com.emedinaa.meetupapp.data.mapper.MemberMapper;
 import com.emedinaa.meetupapp.data.rest.MembersRestInteractor;
 import com.emedinaa.meetupapp.domain.entity.Member;
+import com.emedinaa.meetupapp.presentation.adapter.EndlessRecyclerViewScrollListener;
 import com.emedinaa.meetupapp.presentation.adapter.MemberRenderer;
 import com.emedinaa.meetupapp.presentation.presenter.MemberPresenter;
 import com.emedinaa.meetupapp.presentation.view.MemberView;
@@ -45,12 +48,19 @@ public class MembersFragment extends Fragment implements MemberView {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int offset=0;
 
     private OnFragmentListener mListener;
     private RecyclerView rviMembers;
+    private SwipeRefreshLayout swMembers;
     private List<Member> members;
-    private MemberPresenter memberPresenter;
     private ProgressBar pBar;
+
+    private MemberPresenter memberPresenter;
+    private RendererBuilder<Member> rendererBuilder;
+    private RVRendererAdapter<Member> rendererAdapter=null;
+
+    private EndlessRecyclerViewScrollListener scrollListener;
 
     public MembersFragment() {
         // Required empty public constructor
@@ -90,6 +100,10 @@ public class MembersFragment extends Fragment implements MemberView {
         View view=inflater.inflate(R.layout.fragment_members, container, false);
         rviMembers= (RecyclerView) view.findViewById(R.id.rviMembers);
         pBar=(ProgressBar)view.findViewById(R.id.pBar);
+        swMembers=(SwipeRefreshLayout) view.findViewById(R.id.swMembers);
+
+        Renderer<Member> renderer = new MemberRenderer(new ImageLoaderHelper(ImageLoaderHelper.PICASSO));
+        rendererBuilder= new RendererBuilder<Member>(renderer);
         return view;
     }
 
@@ -99,14 +113,45 @@ public class MembersFragment extends Fragment implements MemberView {
         rviMembers.setHasFixedSize(true);
 
         // use a linear layout manager
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+
+        scrollListener= new EndlessRecyclerViewScrollListener(mLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                Log.v(TAG, "page "+page);
+                loadNextDataFromApi();
+            }
+        };
+
         rviMembers.setLayoutManager(mLayoutManager);
         int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
         rviMembers.addItemDecoration(new MarginDecoration(margin));
+        rviMembers.addOnScrollListener(scrollListener);
+
+        swMembers.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
 
         MemberMapper memberMapper= new MemberMapper();
         memberPresenter= new MemberPresenter(new MembersRestInteractor(memberMapper));
         memberPresenter.attachedView(this);
+    }
+
+    private void refreshContent() {
+        offset=0;
+        if(members!=null) this.members.clear();
+        if(rendererAdapter!=null) rendererAdapter.notifyDataSetChanged();
+        scrollListener.resetState();
+        swMembers.setRefreshing(false);
+        getMembers();
+    }
+
+    public void loadNextDataFromApi() {
+        memberPresenter.getMembers(offset,GROUP);
     }
 
     @Override
@@ -133,16 +178,24 @@ public class MembersFragment extends Fragment implements MemberView {
     }
 
     public void getMembers() {
-        memberPresenter.getMembers(GROUP);
+        //memberPresenter.getMembers(GROUP);
+        memberPresenter.getMembers(offset,GROUP);
     }
 
     @Override
     public void renderMembers(List<Member> members) {
-        this.members= members;
-        Renderer<Member> renderer = new MemberRenderer(new ImageLoaderHelper(ImageLoaderHelper.PICASSO));
-        RendererBuilder<Member> rendererBuilder = new RendererBuilder<Member>(renderer);
-        RVRendererAdapter<Member> rendererAdapter= new RVRendererAdapter<Member>(rendererBuilder,members);
-        rviMembers.setAdapter(rendererAdapter);
+        if(rendererAdapter==null){
+            this.members= members;
+            rendererAdapter= new RVRendererAdapter<Member>(rendererBuilder,members);
+            rviMembers.setAdapter(rendererAdapter);
+        }else{
+            this.members.addAll(members);
+            //rendererAdapter= new RVRendererAdapter<Member>(rendererBuilder,members);
+            //rviMembers.setAdapter(rendererAdapter);
+            rendererAdapter.notifyDataSetChanged();
+        }
+        offset++;
+
     }
 
     @Override

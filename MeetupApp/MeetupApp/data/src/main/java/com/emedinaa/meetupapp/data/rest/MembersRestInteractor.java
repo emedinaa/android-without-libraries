@@ -36,9 +36,43 @@ public class MembersRestInteractor implements MembersInteractor {
         options.put("sign","true");
         options.put("photo-host","public");
         options.put("group_urlname", group_urlname);
-        options.put("page", "200");
+        options.put("page", "100");
 
         Call<MemberResponse> call= ApiClient.getMyApiClient().membersByGroup(options);
+        execute(call,storageCallback);
+    }
+
+    @Override
+    public void membersByGroup(String group_urlname, int page, final StorageCallback storageCallback) {
+        Map<String, String> options = new HashMap<>();
+        options.put("key",Constants.MEETUPKEY);
+        options.put("sign","true");
+        options.put("photo-host","public");
+        options.put("group_urlname", group_urlname);
+        options.put("page",Integer.toString(page));
+
+        Call<MemberResponse> call= ApiClient.getMyApiClient().membersByGroup(options);
+        execute(call,storageCallback);
+
+    }
+
+    @Override
+    public void membersByGroup(String group_urlname, int totalByPage, int offset,final StorageCallback storageCallback) {
+
+        Map<String, String> options = new HashMap<>();
+        options.put("key",Constants.MEETUPKEY);
+        options.put("sign","true");
+        options.put("photo-host","public");
+        options.put("group_urlname", group_urlname);
+        options.put("page",Integer.toString(totalByPage));
+        options.put("offset",Integer.toString(offset));
+
+        Call<MemberResponse> call= ApiClient.getMyApiClient().membersByGroup(options);
+        execute(call,storageCallback);
+
+    }
+
+    private void execute(Call<MemberResponse> call,final StorageCallback storageCallback){
         call.enqueue(new Callback<MemberResponse>() {
             @Override
             public void onResponse(Call<MemberResponse> call, Response<MemberResponse> response) {
@@ -80,4 +114,5 @@ public class MembersRestInteractor implements MembersInteractor {
             }
         });
     }
+
 }
