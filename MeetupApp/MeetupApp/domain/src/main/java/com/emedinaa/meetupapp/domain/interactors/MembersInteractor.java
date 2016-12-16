@@ -8,4 +8,6 @@ import com.emedinaa.meetupapp.domain.callback.StorageCallback;
 public interface MembersInteractor {
 
     void membersByGroup(String group_urlname, StorageCallback callback);
+    void membersByGroup(String group_urlname, int offset, StorageCallback callback);
+    void membersByGroup(String group_urlname,int totalByPage, int offset, StorageCallback callback);
 }

@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.emedinaa.meetupapp.R;
 import com.emedinaa.meetupapp.common.media.ImageLoaderHelper;
@@ -49,6 +51,9 @@ public class EventsFragment extends Fragment implements EventView {
     private OnFragmentListener mListener;
     private RecyclerView rviEvents;
     private ProgressBar pBar;
+    private TextView tviMessage;
+    private SwipeRefreshLayout swEvents;
+
     private List<Meetup> meetups;
     private EventPresenter eventPresenter;
     private String eventType=null;
@@ -93,6 +98,8 @@ public class EventsFragment extends Fragment implements EventView {
         View view=inflater.inflate(R.layout.fragment_events, container, false);
         rviEvents= (RecyclerView) view.findViewById(R.id.rviEvents);
         pBar=(ProgressBar)view.findViewById(R.id.pBar);
+        tviMessage=(TextView) view.findViewById(R.id.tviMessage);
+        swEvents=(SwipeRefreshLayout) view.findViewById(R.id.swEvents);
         return view;
     }
 
@@ -107,15 +114,31 @@ public class EventsFragment extends Fragment implements EventView {
         int margin= getResources().getDimensionPixelSize(R.dimen.row_margin);
         rviEvents.addItemDecoration(new MarginDecoration(margin));
 
+        swEvents.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
+
         EventMapper eventMapper= new EventMapper();
         eventPresenter= new EventPresenter(new EventsRestInteractor(eventMapper));
         eventPresenter.attachedView(this);
 
     }
 
+    private void refreshContent() {
+        swEvents.setRefreshing(false);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        getEvents();
+    }
+
+    private void getEvents(){
+        tviMessage.setVisibility(View.GONE);
         if(eventType!=null){
             if(eventType.equals("upcoming")){
                 eventPresenter.getUpcomingEvent(GROUP);
@@ -123,7 +146,6 @@ public class EventsFragment extends Fragment implements EventView {
                 eventPresenter.getPastEvents(GROUP);
             }
         }
-
     }
 
     @Override
@@ -153,6 +175,7 @@ public class EventsFragment extends Fragment implements EventView {
         rviEvents.setAdapter(rendererAdapter);
 
         //renderMeetupsAdapter(meetups);
+        tviMessage.setVisibility(View.GONE);
     }
 
     private void renderMeetupsAdapter(List<Meetup> meetups){
@@ -161,12 +184,12 @@ public class EventsFragment extends Fragment implements EventView {
 
     @Override
     public void emptyMeetups() {
-
+        tviMessage.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showMessage(String message) {
-
+        tviMessage.setVisibility(View.GONE);
     }
 
     @Override
