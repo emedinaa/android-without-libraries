@@ -1,7 +1,6 @@
 package com.emedinaa.meetupapp.data.storage;
 
 import android.content.SharedPreferences;
-
 import com.emedinaa.meetupapp.data.entity.UserEntity;
 import com.emedinaa.meetupapp.data.helpers.GsonHelper;
 
@@ -61,4 +60,5 @@ public class DefaultSharedPreferencesHelper implements SharedPreferencesHelper {
     private  SharedPreferences.Editor editor() {
         return sharedPreferences.edit();
     }
+
 }
